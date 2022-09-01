@@ -11,6 +11,9 @@ const http = new axiosApi({
         development: "https://apipc-xiaotuxian-front.itheima.net/",
         production: "https://apipc-xiaotuxian-front.itheima.net/"
     },
+
+    headers: ["Content-Type", "application/json"],
+
     timeout: 5000,
     requestConfig(config: any) {
         if (window.localStorage.getItem('token')) {
