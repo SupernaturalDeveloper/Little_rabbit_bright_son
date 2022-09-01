@@ -22,7 +22,9 @@ const getFindSubCategoryFilter = (id: ISecondID<string | number>) => $.getAxios(
  * @param params 分类id、筛选条件、排序条件、分页信息
  * @returns {*}
  */
-const postFindSubCategoryGoods = (params: IParams): Promise<any> => $.getAxios('category/goods/temporary', params);
+
+const postFindSubCategoryGoods = (params: IParams): Promise<any> => $.postAxios('category/goods/temporary', params);
+
 export {
     //  * 获取所有分类（顶级，二级，对应的商品推荐数据）
     getFindAllCategory,
