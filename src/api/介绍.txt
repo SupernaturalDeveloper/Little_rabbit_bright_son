@@ -1,0 +1,8 @@
+./cart 购物车购物车接口
+./const 常量接口
+./home 首页接口
+./category 分类接口 最后一个params参数不明
+./member 收藏分页数据
+./order 订单相关接口
+./user 用户信息、登录相关接口
+./product 商品相关接口
