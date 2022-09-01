@@ -9,3 +9,4 @@ export const useMainStore = defineStore(Names.Mian, {
     getters: {},
     actions: {}
 })
+export const profile = defineStore(Names.)
