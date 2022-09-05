@@ -9,4 +9,12 @@ store.use(piniaPluginPersistedstate);
 // 样式重置
 import './assets/style/reset.scss'
 
-createApp(App).use(store).use(router).mount('#app')
+// element图标
+import * as ElementPlusIconsVue from '@element-plus/icons-vue'
+
+const app = createApp(App)
+for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
+    app.component(key, component)
+}
+
+app.use(store).use(router).mount('#app')

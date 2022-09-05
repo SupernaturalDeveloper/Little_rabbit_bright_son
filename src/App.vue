@@ -1,16 +1,23 @@
 <template>
     <HeaderView />
-    <div>
-        <router-view></router-view>
+    <TitleView />
+    <div class="main">
+        <div class="content">
+            <router-view></router-view>
+        </div>
     </div>
     <FooterTop />
     <FooterBottom />
 </template>
 <script setup lang="ts">
-    import { getFindBanner } from "./api/home";
-    import { getFindAllCategory } from "./api/category";
-    getFindBanner().then((res: any) => console.log(res));
-    getFindAllCategory().then((res: any) => console.log(res));
 </script>
 <style lang="scss" scoped>
+    .main {
+        background: rgb(245, 245, 245);
+        padding-bottom: 20px;
+        .content {
+            width: 1240px;
+            margin: 0 auto;
+        }
+    }
 </style>
