@@ -7,8 +7,6 @@ export { }
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
-<<<<<<< HEAD
-=======
     CategoryItem: typeof import('./src/components/cate/CategoryItem.vue')['default']
     CategoryList: typeof import('./src/components/cate/CategoryList.vue')['default']
     CateHead: typeof import('./src/components/cate/CateHead.vue')['default']
@@ -32,7 +30,6 @@ declare module '@vue/runtime-core' {
     ElCarousel: typeof import('element-plus/es')['ElCarousel']
     ElCarouselItem: typeof import('element-plus/es')['ElCarouselItem']
     ElCheckbox: typeof import('element-plus/es')['ElCheckbox']
->>>>>>> dd9447ecdd51c8f5f98f67197d5930f0e22f9f32
     ElCol: typeof import('element-plus/es')['ElCol']
     ElRow: typeof import('element-plus/es')['ElRow']
     RouterLink: typeof import('vue-router')['RouterLink']
