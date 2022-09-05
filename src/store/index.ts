@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia';
 import { Names } from './store-namespace'
-import { getGoodsSku, putCheckAllCart, getFindCart, putUpdateCart } from '../api/cart';
+import {putCheckAllCart, getFindCart, putUpdateCart } from '../api/cart';
 import type { ICartList } from '../interface/IAPI/cart';
 export const useCartStore = defineStore(Names.Cart, {
     state: () => {
@@ -76,4 +76,5 @@ export const useCartItemKind = defineStore(Names.Kind, {
 
     },
     actions: {}
+
 })

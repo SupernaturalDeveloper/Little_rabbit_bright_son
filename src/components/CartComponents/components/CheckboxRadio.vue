@@ -20,7 +20,6 @@
     });
     let checkD = ref(check.value);
     const checkHandle = () => {
-        console.log(checkD.value);
         store.setSelectedStatus({
             selected: !check.value,
             skuId: props.skuId!,
