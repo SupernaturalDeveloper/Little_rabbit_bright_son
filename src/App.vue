@@ -9,8 +9,6 @@
     <FooterTop />
     <FooterBottom />
 </template>
-<script setup lang="ts">
-</script>
 <style lang="scss" scoped>
     .main {
         background: rgb(245, 245, 245);

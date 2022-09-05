@@ -7,6 +7,13 @@ export { }
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+<<<<<<< HEAD
+=======
+    CategoryItem: typeof import('./src/components/cate/CategoryItem.vue')['default']
+    CategoryList: typeof import('./src/components/cate/CategoryList.vue')['default']
+    CateHead: typeof import('./src/components/cate/CateHead.vue')['default']
+    HomeComponent: typeof import('./src/components/HomeComponent.vue')['default']
+    HotView: typeof import('./src/components/HotView.vue')['default']
     Breadcrumb: typeof import('./src/components/common/Breadcrumb.vue')['default']
     CartAction: typeof import('./src/components/CartComponents/CartAction.vue')['default']
     CartAS: typeof import('./src/components/CartComponents/components/CartItemComponents/CartAS.vue')['default']
@@ -25,21 +32,10 @@ declare module '@vue/runtime-core' {
     ElCarousel: typeof import('element-plus/es')['ElCarousel']
     ElCarouselItem: typeof import('element-plus/es')['ElCarouselItem']
     ElCheckbox: typeof import('element-plus/es')['ElCheckbox']
+>>>>>>> dd9447ecdd51c8f5f98f67197d5930f0e22f9f32
     ElCol: typeof import('element-plus/es')['ElCol']
-    ElDialog: typeof import('element-plus/es')['ElDialog']
-    ElIcon: typeof import('element-plus/es')['ElIcon']
-    ElInput: typeof import('element-plus/es')['ElInput']
     ElRow: typeof import('element-plus/es')['ElRow']
-    ElTable: typeof import('element-plus/es')['ElTable']
-    ElTableColumn: typeof import('element-plus/es')['ElTableColumn']
-    FooterBottom: typeof import('./src/components/common/FooterBottom.vue')['default']
-    FooterTop: typeof import('./src/components/common/FooterTop.vue')['default']
-    HeaderView: typeof import('./src/components/common/HeaderView.vue')['default']
-    Midal: typeof import('./src/components/CartComponents/components/Midal.vue')['default']
-    ModalButton: typeof import('./src/components/CartComponents/components/ModalButton.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
-    SwiperView: typeof import('./src/components/HomeComponents/SwiperView.vue')['default']
-    TitleView: typeof import('./src/components/common/TitleView.vue')['default']
   }
 }

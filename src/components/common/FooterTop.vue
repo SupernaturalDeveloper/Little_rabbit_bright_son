@@ -19,40 +19,42 @@
     </div>
 </template>
 <script setup lang="ts">
+
 </script>
 <style lang="scss" scoped>
-    .footer-top {
-        width: 100%;
-        height: 290px;
+.footer-top {
+    width: 100%;
+    height: 290px;
 
-        footer {
-            width: 1240px;
-            margin: 0 auto;
-            height: 100%;
+    footer {
+        width: 1240px;
+        margin: 0 auto;
+        height: 100%;
+        margin-top: 20px;
+        ul {
+            display: flex;
+            padding: 60px 0 40px 25px;
+            position: relative;
+            width: 100%;
+            li {
+                width: 25%;
+                height: 190px;
+                text-align: center;
+                padding: 0 72px;
+                border-right: 1px solid #f2f2f2;
+                color: #999;
+                text-align: center;
 
-            ul {
-                display: flex;
-                padding: 60px 0 40px 25px;
-                position: relative;
-                width: 100%;
-                li {
-                    width: 25%;
-                    height: 190px;
-                    text-align: center;
-                    padding: 0 72px;
-                    border-right: 1px solid #f2f2f2;
-                    color: #999;
-                    text-align: center;
-
-                    p {
-                        line-height: 1;
-                        font-size: 18px;
-                    }
-                }
-                :last-child {
-                    border-right: transparent;
+                p {
+                    line-height: 1;
+                    font-size: 18px;
                 }
             }
+            :last-child{
+                border-right: transparent;
+            }
         }
+
     }
+}
 </style>
