@@ -7,6 +7,10 @@ const routes: Array<RouteRecordRaw> = [
     {
         path: '/about',
         component: () => import('../pages/About/AboutComponent.vue')
+    },
+    {
+        path: '/cart',
+        component: () => import('../pages/Cart/CartComponent.vue')
     }
 ];
 const router = createRouter({

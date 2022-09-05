@@ -1,5 +1,5 @@
 <template>
-    <div>helloWord</div>
+    <div></div>
 </template>
 <script setup lang="ts">
 </script>
