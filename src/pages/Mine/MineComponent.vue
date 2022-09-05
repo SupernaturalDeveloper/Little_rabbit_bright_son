@@ -1,15 +1,19 @@
 <template>
+    <!-- mine我的 -->
     <div class="mine">
         <div>
-            <Left></Left>
-            <Right></Right>
+            <!-- mine我的-左侧区域 -->
+            <left></left>
+            <!-- mine我的-右侧区域 -->
+            <div class="right">
+                <router-view></router-view>
+            </div>
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
-import Left from './components/Left.vue';
-import Right from './components/Right.vue';
+    import Left from './components/Left.vue';
     
 </script>
 
@@ -21,7 +25,11 @@ import Right from './components/Right.vue';
             width: 1240px;
             margin: 0 auto;
             padding-top: 20px;
-            background: skyblue;
+            // background: skyblue;
+        }
+        .right{
+            width: 1000px;
+            background: #fff;
         }
     }
 </style>
