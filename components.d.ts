@@ -7,6 +7,11 @@ export { }
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    CategoryItem: typeof import('./src/components/cate/CategoryItem.vue')['default']
+    CategoryList: typeof import('./src/components/cate/CategoryList.vue')['default']
+    CateHead: typeof import('./src/components/cate/CateHead.vue')['default']
+    HomeComponent: typeof import('./src/components/HomeComponent.vue')['default']
+    HotView: typeof import('./src/components/HotView.vue')['default']
     Breadcrumb: typeof import('./src/components/common/Breadcrumb.vue')['default']
     CartAction: typeof import('./src/components/CartComponents/CartAction.vue')['default']
     CartAS: typeof import('./src/components/CartComponents/components/CartItemComponents/CartAS.vue')['default']
