@@ -44,5 +44,6 @@ export {
     //  * 获取商品板块
     getFindGoods,
     //  * 获取最新专题
-    getFindSpecial
+    getFindSpecial,
+
 }
