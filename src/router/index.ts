@@ -39,6 +39,11 @@ const routes: Array<RouteRecordRaw> = [
     {
         path: '/groceries',
         component: () => import('../pages/Home/homelist/GroceriesView.vue')
+
+    },
+    {
+        path: '/cart',
+        component: () => import('../pages/Cart/CartComponent.vue')
     }
 ];
 const router = createRouter({

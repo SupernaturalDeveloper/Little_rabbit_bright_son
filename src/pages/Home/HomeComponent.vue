@@ -1,5 +1,4 @@
 <template>
-
     <div class="swiper">
         <div class="cover-box">
             <ul class="menu">
@@ -82,4 +81,5 @@ watchEffect(async () => {
 .goods {
     width: 100%;
 }
+
 </style>
