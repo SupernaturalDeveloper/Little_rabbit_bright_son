@@ -7,14 +7,24 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    CategoryItem: typeof import('./src/components/cate/CategoryItem.vue')['default']
+    CategoryList: typeof import('./src/components/cate/CategoryList.vue')['default']
+    CateHead: typeof import('./src/components/cate/CateHead.vue')['default']
+    ElButton: typeof import('element-plus/es')['ElButton']
+    ElCarousel: typeof import('element-plus/es')['ElCarousel']
+    ElCarouselItem: typeof import('element-plus/es')['ElCarouselItem']
     ElCol: typeof import('element-plus/es')['ElCol']
+    ElInput: typeof import('element-plus/es')['ElInput']
     ElRow: typeof import('element-plus/es')['ElRow']
     FooterBottom: typeof import('./src/components/FooterBottom.vue')['default']
     FooterTop: typeof import('./src/components/FooterTop.vue')['default']
     HeaderView: typeof import('./src/components/HeaderView.vue')['default']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
+    HomeComponent: typeof import('./src/components/HomeComponent.vue')['default']
+    HotView: typeof import('./src/components/HotView.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    SwiperView: typeof import('./src/components/SwiperView.vue')['default']
     TitleView: typeof import('./src/components/TitleView.vue')['default']
   }
 }

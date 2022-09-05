@@ -30,7 +30,7 @@
         width: 1240px;
         margin: 0 auto;
         height: 100%;
-
+        margin-top: 20px;
         ul {
             display: flex;
             padding: 60px 0 40px 25px;
