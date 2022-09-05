@@ -23,7 +23,7 @@ const getGoodsSku = ({ skuId }: ISkuID<number>) => $.getAxios(`goods/sku/${skuId
  * @param {Boolean} object.selected - 选中状态
  * @param {Integer} object.count - 数量
  */
-const postMergeCart = (cartList: ICartList<number | string, number>) => $.getAxios('member/cart/merge', cartList);
+const postMergeCart = (cartList?: ICartList<number | string, number>) => $.getAxios('member/cart/merge', cartList);
 /**
  * 获取购物车列表
  * @returns
