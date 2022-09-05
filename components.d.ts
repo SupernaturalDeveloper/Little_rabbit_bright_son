@@ -7,6 +7,32 @@ export { }
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+<<<<<<< HEAD
+=======
+    CategoryItem: typeof import('./src/components/cate/CategoryItem.vue')['default']
+    CategoryList: typeof import('./src/components/cate/CategoryList.vue')['default']
+    CateHead: typeof import('./src/components/cate/CateHead.vue')['default']
+    HomeComponent: typeof import('./src/components/HomeComponent.vue')['default']
+    HotView: typeof import('./src/components/HotView.vue')['default']
+    Breadcrumb: typeof import('./src/components/common/Breadcrumb.vue')['default']
+    CartAction: typeof import('./src/components/CartComponents/CartAction.vue')['default']
+    CartAS: typeof import('./src/components/CartComponents/components/CartItemComponents/CartAS.vue')['default']
+    CartContent: typeof import('./src/components/CartComponents/CartContent.vue')['default']
+    CartControl: typeof import('./src/components/CartComponents/components/CartItemComponents/CartControl.vue')['default']
+    CartGoods: typeof import('./src/components/CartComponents/components/CartItemComponents/CartGoods.vue')['default']
+    CartItem: typeof import('./src/components/CartComponents/components/CartItem.vue')['default']
+    CehckboxRadio: typeof import('./src/components/CartComponents/components/CehckboxRadio.vue')['default']
+    CehckoutRadio: typeof import('./src/components/CartComponents/components/CehckoutRadio.vue')['default']
+    Checkbox: typeof import('./src/components/CartComponents/components/Checkbox.vue')['default']
+    CheckboxRadio: typeof import('./src/components/CartComponents/components/CheckboxRadio.vue')['default']
+    DeleteChecked: typeof import('./src/components/CartComponents/components/DeleteChecked.vue')['default']
+    ElBreadcrumb: typeof import('element-plus/es')['ElBreadcrumb']
+    ElBreadcrumbItem: typeof import('element-plus/es')['ElBreadcrumbItem']
+    ElButton: typeof import('element-plus/es')['ElButton']
+    ElCarousel: typeof import('element-plus/es')['ElCarousel']
+    ElCarouselItem: typeof import('element-plus/es')['ElCarouselItem']
+    ElCheckbox: typeof import('element-plus/es')['ElCheckbox']
+>>>>>>> dd9447ecdd51c8f5f98f67197d5930f0e22f9f32
     ElCol: typeof import('element-plus/es')['ElCol']
     ElRow: typeof import('element-plus/es')['ElRow']
     RouterLink: typeof import('vue-router')['RouterLink']
