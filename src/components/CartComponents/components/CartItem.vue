@@ -7,7 +7,7 @@
             ></CheckboxRadio>
         </td>
         <td>
-            <CartGoods></CartGoods>
+            <CartGoods :ITEM="item"></CartGoods>
         </td>
         <td>单价</td>
         <td>
@@ -28,6 +28,7 @@
         },
     });
     let item = computed(() => {
+        console.log(props.itemMessage);
         return props.itemMessage;
     });
 </script>
