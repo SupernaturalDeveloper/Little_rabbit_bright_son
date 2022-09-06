@@ -44,7 +44,11 @@ const routes: Array<RouteRecordRaw> = [
     {
         path: '/cart',
         component: () => import('../pages/Cart/CartComponent.vue')
-    }
+    },
+		{
+		    path: '/category',
+		    component: () => import('../pages/Category/Category.vue')
+		}
 ];
 const router = createRouter({
     history: createWebHashHistory(),
