@@ -36,7 +36,7 @@ declare module '@vue/runtime-core' {
     ModalButton: typeof import('./components/CartComponents/components/ModalButton.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
-    SwiperView: typeof import('./components/HomeComponents/SwiperView.vue')['default']
+    SwiperView: typeof import('./components/common/SwiperView.vue')['default']
     TitleView: typeof import('./components/common/TitleView.vue')['default']
   }
 }
