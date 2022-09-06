@@ -1,13 +1,14 @@
 import { defineStore } from 'pinia';
 import { Names } from './store-namespace'
 import { getGoodsSku, putCheckAllCart, getFindCart, putUpdateCart } from '../api/cart';
-import type { ICartList } from '../interface/IAPI/cart';
+import type { ICartList, ISkuID } from '../interface/IAPI/cart';
 export const useCartStore = defineStore(Names.Cart, {
     state: () => {
         return {
             ShoppingCartData: [],
             ShoppingCartIds: [],
-            selectedData: []
+            selectedData: [],
+            kindData: []
         }
     },
     getters: {
@@ -21,6 +22,9 @@ export const useCartStore = defineStore(Names.Cart, {
         // 获取更新后的数据
         getShoppingCartData(state) {
             return state.ShoppingCartData
+        },
+        getKindMessage(state) {
+            return state.kindData;
         }
     },
     actions: {
@@ -59,6 +63,15 @@ export const useCartStore = defineStore(Names.Cart, {
                     skuId, selected
                 })
                 this.getCartData();
+            } catch (error) {
+                return error;
+            }
+        },
+        async getKindData({ skuId }: ISkuID<number>) {
+            try {
+                let data = await getGoodsSku({ skuId });
+                this.kindData = data.result;
+                console.log(this.kindData)
             } catch (error) {
                 return error;
             }

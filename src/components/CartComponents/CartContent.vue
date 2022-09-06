@@ -56,7 +56,6 @@
         kindStore.goodsKinds
             .filter(item => {
                 if ((item["value"] as any).contains(e.target)) {
-                    console.log(123);
                     (item["value"] as any).children[1].style.display = "block";
                 }
                 return !(item["value"] as any).contains(e.target);
