@@ -28,15 +28,31 @@
                                         v-if="DItem.picture"
                                         :src="DItem.picture"
                                         :title="DItem.name"
-                                        @click="imgClick"
-                                        alt=""
+                                        :class="
+                                            isGreenBorder[item.name] ==
+                                            DItem.name
+                                                ? 'greenBorder'
+                                                : ''
+                                        "
+                                        @click="imgClick(item.name, DItem.name)"
                                     />
-                                    <span @click="spanClick" v-else>{{
-                                        DItem.name
-                                    }}</span>
+                                    <span
+                                        :class="
+                                            isGreenBorder[item.name] ==
+                                            DItem.name
+                                                ? 'greenBorder'
+                                                : ''
+                                        "
+                                        @click="
+                                            spanClick(item.name, DItem.name)
+                                        "
+                                        v-else
+                                        >{{ DItem.name }}</span
+                                    >
                                 </template>
                             </dd>
                         </dl>
+                        <el-button type="primary">确认</el-button>
                     </div>
                 </div>
             </div>
@@ -45,7 +61,7 @@
 </template>
 <script setup lang="ts">
     import { useCartItemKind, useCartStore } from "../../../../store";
-    import { ref, defineProps, computed } from "vue";
+    import { ref, defineProps, computed, reactive } from "vue";
     const props = defineProps({
         ITEM: Object,
     });
@@ -73,12 +89,21 @@
             }
             return obj;
         },
-        set: val => {},
+        set: val => {
+            console.log(val);
+            Object.assign(tabBorder, val);
+        },
     });
-
-    console.log(isGreenBorder.value);
-    const imgClick = () => {};
-    const spanClick = () => {};
+    const tabBorder = { 颜色: "米白色", 尺码: "39" };
+    // console.log(isGreenBorder.value);
+    const imgClick = (key: any, val: any) => {
+        Object.assign(tabBorder, { [key]: val });
+        // console.log(key, val, tabBorder);
+    };
+    const spanClick = (key: any, val: any) => {
+        Object.assign(tabBorder, { [key]: val });
+        // console.log(key, val, tabBorder);
+    };
 </script>
 <style lang="scss" scoped>
     .cartGoods {
@@ -183,5 +208,8 @@
                 }
             }
         }
+    }
+    .greenBorder {
+        border-color: #27ba9b !important;
     }
 </style>

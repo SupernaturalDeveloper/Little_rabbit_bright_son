@@ -19,6 +19,7 @@ declare module '@vue/runtime-core' {
     CateHead: typeof import('./components/cate/CateHead.vue')['default']
     Checkbox: typeof import('./components/CartComponents/components/Checkbox.vue')['default']
     CheckboxRadio: typeof import('./components/CartComponents/components/CheckboxRadio.vue')['default']
+    ElBacktop: typeof import('element-plus/es')['ElBacktop']
     ElBreadcrumb: typeof import('element-plus/es')['ElBreadcrumb']
     ElBreadcrumbItem: typeof import('element-plus/es')['ElBreadcrumbItem']
     ElButton: typeof import('element-plus/es')['ElButton']
