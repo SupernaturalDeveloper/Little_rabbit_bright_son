@@ -7,6 +7,11 @@ export { }
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+
+   
+    CarouselView: typeof import('./src/components/CarouselView.vue')['default']
+    
+
     CategoryItem: typeof import('./src/components/cate/CategoryItem.vue')['default']
     CategoryList: typeof import('./src/components/cate/CategoryList.vue')['default']
     CateHead: typeof import('./src/components/cate/CateHead.vue')['default']
@@ -30,8 +35,21 @@ declare module '@vue/runtime-core' {
     ElCarousel: typeof import('element-plus/es')['ElCarousel']
     ElCarouselItem: typeof import('element-plus/es')['ElCarouselItem']
     ElCheckbox: typeof import('element-plus/es')['ElCheckbox']
+
     ElCol: typeof import('element-plus/es')['ElCol']
+    ElInput: typeof import('element-plus/es')['ElInput']
+    ElRadio: typeof import('element-plus/es')['ElRadio']
+    ElRadioGroup: typeof import('element-plus/es')['ElRadioGroup']
     ElRow: typeof import('element-plus/es')['ElRow']
+
+    ElTabPane: typeof import('element-plus/es')['ElTabPane']
+    ElTabs: typeof import('element-plus/es')['ElTabs']
+    FooterBottom: typeof import('./src/components/FooterBottom.vue')['default']
+    FooterTop: typeof import('./src/components/FooterTop.vue')['default']
+    HeaderView: typeof import('./src/components/HeaderView.vue')['default']
+    HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
+    HomePane: typeof import('./src/components/HomePane.vue')['default']
+
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
   }

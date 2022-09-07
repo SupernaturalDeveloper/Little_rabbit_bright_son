@@ -31,7 +31,6 @@ const goods_list = reactive<Array<any>>([])
 watchEffect(async () => {
     const res = await getFindGoods()
     goods_list.push(...res.result)
-    console.log(res);
 })
 
 </script>
