@@ -1,5 +1,6 @@
 <template>
-    <div class="item" v-for="el,i in props.ItemList" :key="i">
+    
+    <div class="item" v-for="el,i in props.ItemList" :key="i" @click="getParmas(i)">
         <div class="box">
             <img :src="el.picture" alt="图片" />
             <p class="names e">{{el.name}}</p>
@@ -10,11 +11,23 @@
 </template>
 
 <script lang="ts" setup>
-import {defineProps } from 'vue';
+import {defineProps,ref } from 'vue';
 
 const props = defineProps({
     ItemList : Array<any>
 })
+let _id = ref<string>('')
+function getParmas(i:any){
+    console.log(i)
+    props.ItemList?.forEach((item,index)=>{
+        if(i==index ){
+            console.log(item);
+            _id.value = item.id
+        }
+    })
+    console.log(_id.value);
+
+}
 
 </script>
 
