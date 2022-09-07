@@ -1,52 +1,80 @@
 <template>
     <!-- Order订单 -->
-    <div class="order">
+    <div class="order" v-for="item in (msg as any).items" :key="item.id">
         <div class="head">
             <p>
-                <span>下单时间：2022-09-02 09:54:38</span>
-                <span>订单编号：1565518530648051713</span>
+                <span>下单时间：{{item.createTime}}</span>
+                <span>订单编号：{{item.id}}</span>
             </p>
-            <slot name="head-right"></slot>
+            <div class="time" v-if="item.orderState==1">
+                <img src="../../../assets/img/time.png" alt="">
+                <span>付款截止：59分58秒</span>
+            </div>
+            <div class="del" v-else-if="item.orderState==6">删除</div>
         </div>
         <div class="box">
             <ul class="goods">
-                <li>
-                    <img src="https://yanxuan-item.nosdn.127.net/40bcee837dbd99e810f93791f0b77786.png" alt="">
+                <li v-for="item2 in item.skus" :key="item2.id">
+                    <img :src="item2.image" alt="图片加载失败">
                     <div class="info">
-                        <p>品茗不湿桌面竹制干泡茶盘</p>
-                        <div>规格:长方形茶盘（37.8*14.8*3.5cm） </div>
+                        <p>{{item2.name}}</p>
+                        <div>{{item2.attrsText}}</div>
                     </div>
-                    <div class="price">¥99</div>
-                    <div class="count">x1</div>
-                </li>
-                <li>
-                    <img src="https://yanxuan-item.nosdn.127.net/40bcee837dbd99e810f93791f0b77786.png" alt="">
-                    <div class="info">
-                        <p>品茗不湿桌面竹制干泡茶盘</p>
-                        <div>规格:长方形茶盘（37.8*14.8*3.5cm） </div>
-                    </div>
-                    <div class="price">¥99</div>
-                    <div class="count">x1</div>
+                    <div class="price">¥{{item2.realPay}}</div>
+                    <div class="count">x{{item2.quantity}}</div>
                 </li>
             </ul>
             <div class="state">
-                <p>待付款</p>
-                <!-- <p><slot name="state"></slot></p> -->
+                <p>{{item.orderState==1?'待付款':item.orderState==2?'待发货':item.orderState==3?'待收货':item.orderState==4?'待评价':item.orderState==5?'已完成':item.orderState==6?'已取消':''}}</p>
+                <p v-if="item.orderState==4" class="evaluate">评价商品</p>
             </div>
             <div class="amount">
-                <p class="red">¥104</p>
-                <p>（含运费：¥5）</p>
-                <p>在线支付</p>
+                <p class="red">¥{{item.payMoney}}</p>
+                <p>（含运费：¥{{item.postFee}}）</p>
+                <p>{{item.payType==1?'在线支付':item.payType==2?'货到付款':''}}</p>
             </div>
             <div class="action">
-                <slot name="action"></slot>
+                <!-- 待付款 -->
+                <template v-if="item.orderState==1">
+                    <button>立即付款</button>
+                    <p>查看订单</p>
+                    <p>取消订单</p>
+                </template>
+                <!-- 待发货 -->
+                <template v-if="item.orderState==2">
+                    <p>查看详情</p>
+                    <p>再次购买</p>
+                </template>
+                <!-- 待评价 -->
+                <template v-if="item.orderState==4">
+                    <p>再次购买</p>
+                    <p>查看详情</p>
+                    <p>申请售后</p>
+                </template>
+                <!-- 已取消 -->
+                <template v-if="item.orderState==6">
+                    <p>查看详情</p>
+                </template>
             </div>
         </div>
     </div>
+    <div v-if="(msg as any).counts==0" class="noData">暂无数据</div>
+
+    <!-- 取消订单 -->
+    <!-- <div class="cancelOrder"></div> -->
+
 </template>
 
 <script setup lang="ts">
-    
+    import { useOrderStore } from '../../../store/order';
+    import {computed,ref} from 'vue'
+    // 数据
+    let msg=computed(()=>{
+        // console.log(useOrderStore().GETORDERLIST)
+        return useOrderStore().GETORDERLIST
+    })
+    // 取消订单
+
 </script>
 
 <style lang="scss" scoped>
@@ -66,6 +94,20 @@
                     margin-right: 20px;
                 }
             }
+            .time{
+                img{
+                    width: 16px;
+                    height: 16px;
+                    margin-right: 3px;
+                }
+                span{
+                    vertical-align: middle;
+                    font-weight: 400;
+                }
+            }
+            .del{
+                color: #999;
+            }
         }
         .box{
             display: flex;
@@ -80,6 +122,7 @@
                         width: 70px;
                         height: 70px;
                         border: 1px solid #f5f5f5;
+                        cursor: pointer;
                         // vertical-align: middle;
                     }
                     .info{
@@ -122,16 +165,39 @@
             }
             .state{
                 width: 120px;
+                .evaluate{
+                    color: #27ba9b;
+                    cursor: pointer;
+                }
             }
             .amount{
                 width: 200px;
             }
             .action{
                 width: 140px;
+                button{
+                    border-color: #27ba9b;
+                    background: #27ba9b;
+                    color: #fff;
+                    width: 100px;
+                    height: 32px;
+                    font-size: 14px;
+                    border-radius: 4px;
+                    cursor: pointer;
+                }
             }
             .red{
                 color: #cf4444;;
             }
         }
     }
+    .noData{
+        height: 400px;
+        text-align: center;
+        line-height: 400px;
+        color: #999;
+    }
+    // .cancelOrder{
+
+    // }
 </style>

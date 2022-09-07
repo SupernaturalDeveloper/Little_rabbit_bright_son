@@ -19,7 +19,7 @@ const http = new axiosApi({
         // if (window.localStorage.getItem('token')) {
         //     config.headers.Authorization = `bearer ${window.localStorage.getItem('token')}`
         // }
-        config.headers.Authorization = `Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ7XCJuYW1lXCI6XCLkvKDmmbrmlZnogrIrMVwiLFwiaWRcIjpcIjEzNjk1OTQ5NTQ3Mzk4NTk0NThcIixcInVzZXJuYW1lXCI6XCJ4aWFvdHV4aWFuMDAxXCJ9IiwiaWF0IjoxNjYyMzY4MjIzLCJleHAiOjE2NjI2Mjc0MjN9.BKchN572yl255TgfThomAOg76ilOCpduV0aKutABR5M`
+        config.headers.Authorization = `Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ7XCJuYW1lXCI6XCJEaWRcIixcImlkXCI6XCIxMzY5NTk0OTU0NzM5ODU5NDU4XCIsXCJ1c2VybmFtZVwiOlwieGlhb3R1eGlhbjAwMVwifSIsImlhdCI6MTY2MjQ2NTE5NywiZXhwIjoxNjYyNzI0Mzk3fQ.e4p5WKaAor6vnvjcNh_0YcAt1DezLhmwXvpew1rPZWY`
         return config;
     },
     requestError(error: any) {
