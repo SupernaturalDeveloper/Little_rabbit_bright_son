@@ -9,13 +9,17 @@
         <td>
             <CartGoods :ITEM="item"></CartGoods>
         </td>
-        <td>单价</td>
+        <td>￥{{ item.price }}</td>
         <td>
-            <CartAS :stock="5"></CartAS>
+            <CartAS
+                :stock="item.stock"
+                :skuId="item.skuId"
+                :count="item.count"
+            ></CartAS>
         </td>
-        <td>小计</td>
+        <td style="color: red">￥{{ collect }}</td>
         <td>
-            <CartControl></CartControl>
+            <CartControl :skuId="item.skuId"></CartControl>
         </td>
     </tr>
 </template>
@@ -28,8 +32,11 @@
         },
     });
     let item = computed(() => {
-        console.log(props.itemMessage);
+        // console.log(props.itemMessage);
         return props.itemMessage;
+    });
+    let collect = computed(() => {
+        return props.itemMessage.price * props.itemMessage.count;
     });
 </script>
 <style lang="scss" scoped>
