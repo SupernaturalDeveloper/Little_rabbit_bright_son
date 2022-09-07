@@ -5,17 +5,8 @@
                 <img src="../../assets/img/logo.png" alt="" />
             </div>
             <ul>
-                <!-- <li class="home">首页</li>
-                <li v-for="item, index in title_arr" :key="index">{{ item }}</li> -->
                 <router-link to="/" tag="li">首页</router-link>
-                <router-link to="/family" tag="li">居家</router-link>
-                <router-link to="/foods" tag="li">食物</router-link>
-                <router-link to="/motherhood" tag="li">母婴</router-link>
-                <router-link to="/personalcare" tag="li">个护</router-link>
-                <router-link to="/strictly" tag="li">严选</router-link>
-                <router-link to="/digital" tag="li">数码</router-link>
-                <router-link to="/motion" tag="li">运动</router-link>
-                <router-link to="/groceries" tag="li">杂货</router-link>
+                <li v-for="item,index in category" :key="item.id" @click="toHomelist(index)">{{item.name}}</li>
             </ul>
             <div class="search">
                 <i class="icon-search"></i>
@@ -30,6 +21,29 @@
     </div>
 </template>
 <script setup lang="ts">
+import { getFindAllCategory } from '../../api/category/index'
+import { watchEffect, reactive } from 'vue'
+import {useRouter} from 'vue-router'
+const category = reactive<Array<any>>([])
+const router = useRouter()
+watchEffect(async () => {
+    let res1 = await getFindAllCategory()
+    category.push(...res1.result)
+})
+function toHomelist(i:number){
+    category.forEach((item:any,index:number)=>{
+        if(i == index){
+            router.push({
+                path : '/homelist',
+                query : {
+                    id : item.id
+                }
+            })
+        }
+
+    })
+}
+
 </script>
 <style lang="scss" scoped>
     .pc-title {
@@ -120,14 +134,9 @@
                 justify-content: space-around;
                 padding-left: 40px;
                 position: relative;
-
                 li {
-                    margin-right: 40px;
                     width: 38px;
                     text-align: center;
-                }
-                a {
-                    color: #000;
                 }
             }
         }

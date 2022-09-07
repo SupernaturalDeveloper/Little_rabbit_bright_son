@@ -9,18 +9,22 @@
 </template>
 <script lang="ts" setup>
 import { watchEffect,reactive,ref} from 'vue';
-import {getFindTopCategory} from '../../../api/category/index'
-import { getFindBanner } from '../../../api/home/index'
+import {getFindTopCategory} from '../../api/category/index'
+import { getFindBanner } from '../../api/home/index'
+import {useRoute} from 'vue-router'
 const list = reactive<Array<any>>([])
 const swiper = reactive<Array<any>>([])
+const route = useRoute()
+let _id:any = route.query.id
 let title = ref<string>('')
 watchEffect(async ()=>{
-    let res = await getFindTopCategory({id : 1005000})
+    let res = await getFindTopCategory({id : _id})
     let res2 = await getFindBanner()
     list.push(...res.result.children)
     swiper.push(...res2.result)
     title.value = res.result.name
 })
+console.log(route.query.id);
 
 
 </script>

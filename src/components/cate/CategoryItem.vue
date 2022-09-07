@@ -1,5 +1,5 @@
 <template>
-    
+
     <div class="item" v-for="el,i in props.ItemList" :key="i" @click="getParmas(i)">
         <div class="box">
             <img :src="el.picture" alt="图片" />
@@ -11,24 +11,30 @@
 </template>
 
 <script lang="ts" setup>
-import {defineProps,ref } from 'vue';
-
+import {defineProps,ref} from 'vue';
+import {useRouter} from 'vue-router'
 const props = defineProps({
     ItemList : Array<any>
 })
+const router = useRouter()
 let _id = ref<string>('')
 function getParmas(i:any){
-    console.log(i)
     props.ItemList?.forEach((item,index)=>{
         if(i==index ){
-            console.log(item);
             _id.value = item.id
+            console.log(_id.value);
+            router.push({
+                path : '/detail',
+                query : {
+                    id: _id.value
+                }
+            })
         }
     })
-    console.log(_id.value);
+
+    console.log(_id);
 
 }
-
 </script>
 
 <style lang="scss" scoped>
