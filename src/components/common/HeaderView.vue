@@ -6,9 +6,9 @@
                 <el-col :span="10">
                     <div class="grid-content ep-bg-purple-light">
                        <ul class="top-ul">
-                        <li>用户</li>
+                        <li><router-link to="/mine/PersonalCenter">用户</router-link></li>
                         <li v-show="flag">退出登录</li>
-                        <li>我的订单</li>
+                        <li><router-link to="/mine/MyOrder">我的订单</router-link></li>
                         <li>会员中心</li>
                         <li>关于我们</li>
                         <li>手机版</li>
@@ -42,6 +42,7 @@ header{
         li{
             padding: 0 10px;
             cursor: pointer;
+            a{color: #fff;}
         }
         li:hover{
             color: #27ba9b;
