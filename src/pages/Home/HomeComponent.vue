@@ -2,9 +2,10 @@
     <div class="swiper">
         <div class="cover-box">
             <ul class="menu">
-                <li v-for="item in category" :key="item.id">
-                    <span>{{ item.name }}</span>
-                    <span v-for="sub in item.children.slice(0, 2)" :key="sub.id">{{ sub.name }}</span>
+                <li v-for="item,index in all" :key="item.id">
+                    <span @click="toOneCate(index)">{{ item.name }}</span>
+                    <span v-for="sub,i in item.children.slice(0, 2)" :key="sub.id" @click="getId(i,index)">{{ sub.name
+                    }}</span>
                 </li>
             </ul>
         </div>
@@ -21,10 +22,15 @@
         <GoodsView />
     </div>
 </template>
+
+
 <script lang="ts" setup>
 import { getFindBanner } from '../../api/home/index'
-import { getFindAllCategory } from '../../api/category/index'
+import { getFindSubCategoryFilter, getFindAllCategory } from '../../api/category/index'
 import { watchEffect, reactive } from 'vue'
+import { useRouter } from 'vue-router'
+
+
 import NewsView from './NewsView.vue';
 import HotView from './HotView.vue';
 import BrandView from './BrandView.vue';
@@ -32,12 +38,46 @@ import GoodsView from './GoodsView.vue';
 
 const swiper = reactive<Array<any>>([])
 const category = reactive<Array<any>>([])
+const all = reactive<Array<any>>([])
+const router = useRouter()
+
 watchEffect(async () => {
     let res = await getFindBanner()
-    let res1 = await getFindAllCategory()
+    let res1 = await getFindSubCategoryFilter({ id: 1007000 })
+    let res2 = await getFindAllCategory()
+    console.log(res1);
+    console.log(res2);
     swiper.push(...res.result)
-    category.push(...res1.result)
+    all.push(...res2.result)
 })
+function toOneCate(i:number){
+    category.forEach((item:any,index:number)=>{
+        if(i == index){
+            console.log(item);
+            router.push({
+                path : '/homelist',
+                query : {
+                    id : item.id
+                }
+            })
+        }
+    })
+}
+async function getId(i: number, j: number) {
+    let message = await getFindAllCategory()
+    message.result[j].children.slice(0, 2).forEach((item: any, index: number) => {
+        if (i == index) {
+            console.log(item.id);
+            router.push({
+                path : '/category',
+                query : {
+                    id:item.id
+                }
+            })
+        }
+    })
+}
+
 
 </script>
 <style lang="scss" scoped>
@@ -63,14 +103,17 @@ watchEffect(async () => {
                 line-height: 50px;
                 font-size: 14px;
                 cursor: pointer;
-                span:first-child{
+
+                span:first-child {
                     font-size: 18px;
                 }
-                span{
+
+                span {
                     margin-right: 6px;
                 }
             }
-            :hover{
+
+            :hover {
                 background: #27ba9b;
             }
         }
@@ -80,5 +123,4 @@ watchEffect(async () => {
 .goods {
     width: 100%;
 }
-
 </style>

@@ -1,7 +1,6 @@
 <template>
     <el-carousel height="500px">
         <el-carousel-item v-for="item in props.swiper" :key="item.id">
-            <!-- <h3>{{item}}</h3> -->
             <img :src="item?.imgUrl" alt="" />
         </el-carousel-item>
     </el-carousel>
@@ -11,8 +10,8 @@ import {defineProps} from 'vue'
 const props = defineProps({
     swiper:{
         type:Array<any>,
-            required:true,
-            default:()=>[]
+        required:true,
+        default:()=>[]
     }
 })
 </script>
