@@ -8,15 +8,11 @@ export { }
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
 
-   
-    CarouselView: typeof import('./src/components/CarouselView.vue')['default']
-    
 
+    CarouselView: typeof import('./src/components/CarouselView.vue')['default']
     CategoryItem: typeof import('./src/components/cate/CategoryItem.vue')['default']
     CategoryList: typeof import('./src/components/cate/CategoryList.vue')['default']
     CateHead: typeof import('./src/components/cate/CateHead.vue')['default']
-    HomeComponent: typeof import('./src/components/HomeComponent.vue')['default']
-    HotView: typeof import('./src/components/HotView.vue')['default']
     Breadcrumb: typeof import('./src/components/common/Breadcrumb.vue')['default']
     CartAction: typeof import('./src/components/CartComponents/CartAction.vue')['default']
     CartAS: typeof import('./src/components/CartComponents/components/CartItemComponents/CartAS.vue')['default']
@@ -37,20 +33,33 @@ declare module '@vue/runtime-core' {
     ElCheckbox: typeof import('element-plus/es')['ElCheckbox']
 
     ElCol: typeof import('element-plus/es')['ElCol']
+    ElDialog: typeof import('element-plus/es')['ElDialog']
+    ElIcon: typeof import('element-plus/es')['ElIcon']
+
     ElInput: typeof import('element-plus/es')['ElInput']
     ElRadio: typeof import('element-plus/es')['ElRadio']
     ElRadioGroup: typeof import('element-plus/es')['ElRadioGroup']
     ElRow: typeof import('element-plus/es')['ElRow']
 
+
     ElTabPane: typeof import('element-plus/es')['ElTabPane']
     ElTabs: typeof import('element-plus/es')['ElTabs']
-    FooterBottom: typeof import('./src/components/FooterBottom.vue')['default']
-    FooterTop: typeof import('./src/components/FooterTop.vue')['default']
-    HeaderView: typeof import('./src/components/HeaderView.vue')['default']
-    HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
     HomePane: typeof import('./src/components/HomePane.vue')['default']
 
+    HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
+    ElTable: typeof import('element-plus/es')['ElTable']
+    ElTableColumn: typeof import('element-plus/es')['ElTableColumn']
+    FooterBottom: typeof import('./src/components/common/FooterBottom.vue')['default']
+    FooterTop: typeof import('./src/components/common/FooterTop.vue')['default']
+    HeaderView: typeof import('./src/components/common/HeaderView.vue')['default']
+    Midal: typeof import('./src/components/CartComponents/components/Midal.vue')['default']
+    ModalButton: typeof import('./src/components/CartComponents/components/ModalButton.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    SwiperView: typeof import('./src/components/HomeComponents/SwiperView.vue')['default']
+    TitleView: typeof import('./src/components/common/TitleView.vue')['default']
+    HomeComponent: typeof import('./src/components/HomeComponent.vue')['default']
+    HotView: typeof import('./src/components/HotView.vue')['default']
+
   }
 }
