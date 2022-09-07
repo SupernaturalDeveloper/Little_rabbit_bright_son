@@ -5,6 +5,11 @@ const routes: Array<RouteRecordRaw> = [
         component: () => import('../pages/Home/HomeComponent.vue')
     },
     {
+        path: '/login',
+        component: () => import('../pages/Login/Login.vue')
+    },
+    {
+
         path: '/family',
         component: () => import('../pages/Home/homelist/FamilyView.vue')
     },
@@ -45,10 +50,10 @@ const routes: Array<RouteRecordRaw> = [
         path: '/cart',
         component: () => import('../pages/Cart/CartComponent.vue')
     },
-		{
-		    path: '/category',
-		    component: () => import('../pages/Category/Category.vue')
-		}
+    {
+        path: '/category',
+        component: () => import('../pages/Category/Category.vue')
+    }
 ];
 const router = createRouter({
     history: createWebHashHistory(),

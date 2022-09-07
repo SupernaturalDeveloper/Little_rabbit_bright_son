@@ -39,7 +39,6 @@ watchEffect(async () => {
     category.push(...res1.result)
 })
 
-
 </script>
 <style lang="scss" scoped>
 .swiper {
