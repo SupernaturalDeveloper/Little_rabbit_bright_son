@@ -22,7 +22,6 @@ export const useCartStore = defineStore(Names.Cart, {
         // 获取更新后的数据
         getShoppingCartData(state) {
             return state.ShoppingCartData
-
         },
         // 获取种类信息
         getKindMessage(state) {
@@ -45,7 +44,6 @@ export const useCartStore = defineStore(Names.Cart, {
             return state.ShoppingCartData.filter(item => item['selected']).reduce((pre, cur) => {
                 return pre + (cur['count'] * cur['price'])
             }, 0)
-
         }
     },
     actions: {
