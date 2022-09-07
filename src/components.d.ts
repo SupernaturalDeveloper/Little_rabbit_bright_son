@@ -8,6 +8,7 @@ export {}
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     Breadcrumb: typeof import('./components/common/Breadcrumb.vue')['default']
+    CarouselView: typeof import('./components/common/CarouselView.vue')['default']
     CartAction: typeof import('./components/CartComponents/CartAction.vue')['default']
     CartAS: typeof import('./components/CartComponents/components/CartItemComponents/CartAS.vue')['default']
     CartContent: typeof import('./components/CartComponents/CartContent.vue')['default']
@@ -34,6 +35,7 @@ declare module '@vue/runtime-core' {
     FooterBottom: typeof import('./components/common/FooterBottom.vue')['default']
     FooterTop: typeof import('./components/common/FooterTop.vue')['default']
     HeaderView: typeof import('./components/common/HeaderView.vue')['default']
+    HomePane: typeof import('./components/common/HomePane.vue')['default']
     KindItem: typeof import('./components/CartComponents/components/CartItemComponents/KindItem.vue')['default']
     ModalButton: typeof import('./components/CartComponents/components/ModalButton.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
