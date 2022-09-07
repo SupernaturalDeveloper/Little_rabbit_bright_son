@@ -15,8 +15,9 @@
             ></ModalButton>
         </div>
         <div class="action-right">
-            共 {{ num }} 件商品，已选择 {{ selectedNum }} 件，商品合计：
-            <span class="price">￥{{ total }}</span>
+            共 {{ store.getCounter }} 件商品，已选择
+            {{ store.getSelectedCounter }} 件，商品合计：
+            <span class="price">￥{{ store.getReducePrice }}</span>
             <el-button color="#626aef">下单结算</el-button>
         </div>
     </div>
@@ -28,7 +29,7 @@
     const store = useCartStore();
     // 删除选中商品
     const confirmDel = (val: boolean) => {
-        console.log(val);
+        store.deleteCartItem({ ids: store.ShoppingCartIds });
     };
     // 清空失效商品
     const confirmClear = (val: boolean) => {
