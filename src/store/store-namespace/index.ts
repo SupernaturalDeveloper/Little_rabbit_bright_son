@@ -1,3 +1,5 @@
 export const enum Names {
-    Mian = 'Main'
+    Mian = 'Main',
+    Cart = "Cart",
+    Kind = 'Kind'
 }

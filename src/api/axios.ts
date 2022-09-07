@@ -8,15 +8,16 @@ const http = new axiosApi({
     // npm i --save-dev @types/node
     process: import.meta.env.MODE,
     baseURL: {
-        development: "https://apipc-xiaotuxian-front.itheima.net/",
+        development: "https://pcapi-xiaotuxian-front-devtest.itheima.net",
         production: "https://apipc-xiaotuxian-front.itheima.net/"
     },
     headers: ["Content-Type", "application/json"],
     timeout: 5000,
     requestConfig(config: any) {
-        if (window.localStorage.getItem('token')) {
-            config.headers.Authorization = `bearer ${window.localStorage.getItem('token')}`
-        }
+        // if (window.localStorage.getItem('token')) {
+        //     config.headers.Authorization = `bearer ${window.localStorage.getItem('token')}`
+        // }
+        config.headers.Authorization = `Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ7XCJuYW1lXCI6XCLkvKDmmbrmlZnogrIrMVwiLFwiaWRcIjpcIjEzNjk1OTQ5NTQ3Mzk4NTk0NThcIixcInVzZXJuYW1lXCI6XCJ4aWFvdHV4aWFuMDAxXCJ9IiwiaWF0IjoxNjYyMzY4MjIzLCJleHAiOjE2NjI2Mjc0MjN9.BKchN572yl255TgfThomAOg76ilOCpduV0aKutABR5M`
         return config;
     },
     requestError(error: any) {
