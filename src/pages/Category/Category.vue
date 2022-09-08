@@ -1,14 +1,14 @@
 <template>
-	<div class="bg">
+	<div class="bg" v-if="da.ide">
 		<div class="fl">
 			<div class="rou">
 				<el-breadcrumb :separator-icon="ArrowRight">
 				  <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
-					<el-breadcrumb-item :to="{ path: '/',query:da.toId }">{{da.parentName}}</el-breadcrumb-item>
+					<el-breadcrumb-item :to="{ path: '/homelist',query:da.toId }">{{da.parentName}}</el-breadcrumb-item>
 					<el-breadcrumb-item>{{da.name}}</el-breadcrumb-item>
 				</el-breadcrumb>
 			</div>
-			<Tworout :ide="da.ide"></Tworout>
+			<Tworout  :ide="da.ide"></Tworout>
 			<el-backtop :right="50" :bottom="100" />
 		</div>
 	</div>
@@ -20,6 +20,7 @@
 	import { getFindSubCategoryFilter } from '../../api/category/index';
 	import { useRoute } from 'vue-router';
 	import {reactive} from 'vue'
+	import axios from 'axios';
 	const route=useRoute()
 	let da:any=reactive({
 		name:'',
@@ -27,8 +28,8 @@
 		toId:'',
 		ide:route.query.id
 	})
-	
-	getFindSubCategoryFilter({ id:da.ide }).then((res:any) => {
+
+	getFindSubCategoryFilter({id:da.ide}).then((res:any) => {
 		let arr=res.result
 		 da.name=arr.name
 		 da.parentName=arr.parentName

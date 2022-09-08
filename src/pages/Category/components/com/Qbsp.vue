@@ -76,9 +76,6 @@
 		})
 	}
 
-
-
-
 	function addList(i:number) {
 		postFindSubCategoryGoods({
 			page: i,

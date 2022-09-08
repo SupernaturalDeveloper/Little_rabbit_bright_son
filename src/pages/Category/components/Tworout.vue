@@ -29,12 +29,13 @@
 import { reactive, ref } from 'vue';
 import Qbsp from './com/Qbsp.vue'
 import { getFindSubCategoryFilter } from '../../../api/category/index';
-const props = defineProps(['foo'])
+const props = defineProps(['ide','msg'])
 let data: any = reactive({
 	list1: {},
-	ide:props.foo
+	ide:props.ide
 })
-getFindSubCategoryFilter({ id: data.ide }).then((res:any) => {
+
+getFindSubCategoryFilter({ id: data.ide}).then((res:any) => {
 	data.list1 = res.result;	
 })
 let brandId = ref(null); // 品牌id
