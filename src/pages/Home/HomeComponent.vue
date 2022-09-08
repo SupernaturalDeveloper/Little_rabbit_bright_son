@@ -4,7 +4,7 @@
             <ul class="menu">
                 <li v-for="item,i in category" :key="item.id">
                     <span>{{ item.name }}</span>
-                    <span v-for="sub in item.children.slice(0, 2)" :key="sub.id" @click="go(item.id)">{{ sub.name }}</span>
+                    <span v-for="sub in item.children.slice(0, 2)" :key="sub.id">{{ sub.name }}</span>
                 </li>
             </ul>
         </div>
@@ -29,7 +29,6 @@ import NewsView from './NewsView.vue';
 import HotView from './HotView.vue';
 import BrandView from './BrandView.vue';
 import GoodsView from './GoodsView.vue';
-import { useRouter } from 'vue-router';
 
 const swiper = reactive<Array<any>>([])
 const category = reactive<Array<any>>([])
@@ -41,17 +40,6 @@ watchEffect(async () => {
     console.log(res.result);
     
 })
-const router=useRouter()
-	function go(hr:string){
-        console.log(hr);  
-		router.push({
-			path:'/category',
-			query:{
-				id:hr
-			}
-		})
-	}
-
 </script>
 <style lang="scss" scoped>
 .swiper {

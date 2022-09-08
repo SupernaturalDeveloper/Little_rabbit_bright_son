@@ -19,6 +19,7 @@
 	import { ArrowRight } from '@element-plus/icons-vue'
 	import { getFindSubCategoryFilter } from '../../api/category/index';
 	import { useRoute } from 'vue-router';
+	import {reactive} from 'vue'
 	const route=useRoute()
 	let da:any=reactive({
 		name:'',
