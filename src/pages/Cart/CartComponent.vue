@@ -8,6 +8,7 @@
     <!-- 轮播图 -->
 </template>
 <script setup lang="ts">
+    // import { onBeforeRouteUpdate } from "vue-router";
     import breadcrumbData from "../../hooks/cart/breadcrumbData";
     // 获取面包屑导航的hooks数据
     const info = breadcrumbData();

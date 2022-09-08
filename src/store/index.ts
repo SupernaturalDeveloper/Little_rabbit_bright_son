@@ -2,6 +2,8 @@ import { defineStore } from 'pinia';
 import { Names } from './store-namespace'
 import { getGoodsSku, putCheckAllCart, getFindCart, putUpdateCart, deleteCart } from '../api/cart';
 import type { ICartList, ISkuID, IIds } from '../interface/IAPI/cart';
+import { useLoginStore } from './login';
+const loginStore = useLoginStore();
 export const useCartStore = defineStore(Names.Cart, {
     state: () => {
         return {
@@ -49,6 +51,9 @@ export const useCartStore = defineStore(Names.Cart, {
     actions: {
         // 获取购物车数据
         async getCartData() {
+            if (!loginStore.getToken) {
+                this.ShoppingCartData = [];
+            }
             try {
                 let data = await getFindCart()
                 this.ShoppingCartData = data.result;
@@ -113,8 +118,7 @@ export const useCartStore = defineStore(Names.Cart, {
                 return error;
             }
         }
-    },
-    persist: true
+    }
 })
 export const useCartItemKind = defineStore(Names.Kind, {
     state: () => {
@@ -122,8 +126,4 @@ export const useCartItemKind = defineStore(Names.Kind, {
             goodsKinds: [],
         }
     },
-    getters: {
-
-    },
-    actions: {}
 })
