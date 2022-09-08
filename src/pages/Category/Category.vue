@@ -33,7 +33,6 @@
 		 da.name=arr.name
 		 da.parentName=arr.parentName
 		 da.toId=arr.id
-		console.log('hhh');
 	})
 </script>
 
