@@ -78,7 +78,6 @@ async function getId(i: number, j: number) {
     })
 }
 
-
 </script>
 <style lang="scss" scoped>
 .swiper {

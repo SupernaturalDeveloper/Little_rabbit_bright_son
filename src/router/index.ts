@@ -24,17 +24,7 @@ const routes: Array<RouteRecordRaw> = [
         path : '/homelist',
         name : 'homelist',
         component : ()=>import('../pages/Home/HomeList.vue'),
-    },
-
-    {
-        path: '/cart',
-        component: () => import('../pages/Cart/CartComponent.vue')
-    },
-		{
-        path : '/detail',
-        component : ()=>import('../pages/Detail/DetailComponent.vue')
     }
-
 ];
 const router = createRouter({
     history: createWebHashHistory(),
