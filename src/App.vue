@@ -18,4 +18,7 @@
             margin: 0 auto;
         }
     }
+    a{
+        color: #999;
+    }
 </style>

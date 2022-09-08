@@ -8,7 +8,8 @@ const http = new axiosApi({
     // npm i --save-dev @types/node
     process: import.meta.env.MODE,
     baseURL: {
-        development: "https://pcapi-xiaotuxian-front-devtest.itheima.net",
+        // development: "https://pcapi-xiaotuxian-front-devtest.itheima.net",
+				development: "https://apipc-xiaotuxian-front.itheima.net/",
         production: "https://apipc-xiaotuxian-front.itheima.net/"
     },
     headers: ["Content-Type", "application/json"],

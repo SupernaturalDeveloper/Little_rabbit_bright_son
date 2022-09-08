@@ -4,22 +4,36 @@
 			<div class="rou">
 				<el-breadcrumb :separator-icon="ArrowRight">
 				  <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
-					<el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
-					<el-breadcrumb-item>首页</el-breadcrumb-item>
+					<el-breadcrumb-item :to="{ path: '/',query:da.toId }">{{da.parentName}}</el-breadcrumb-item>
+					<el-breadcrumb-item>{{da.name}}</el-breadcrumb-item>
 				</el-breadcrumb>
 			</div>
-			<Tworout/>
+			<Tworout :ide="da.ide"></Tworout>
 			<el-backtop :right="50" :bottom="100" />
 		</div>
 	</div>
 </template>
 
 <script lang="ts" setup>
-	import Onerout from './components/Onerout.vue'
 	import Tworout from './components/Tworout.vue'
 	import { ArrowRight } from '@element-plus/icons-vue'
+	import { getFindSubCategoryFilter } from '../../api/category/index';
+	import { useRoute } from 'vue-router';
+	const route=useRoute()
+	let da:any=reactive({
+		name:'',
+		parentName:'',
+		toId:'',
+		ide:route.query.id
+	})
 	
-	
+	getFindSubCategoryFilter({ id:da.ide }).then((res:any) => {
+		let arr=res.result
+		 da.name=arr.name
+		 da.parentName=arr.parentName
+		 da.toId=arr.id
+		console.log('hhh');
+	})
 </script>
 
 <style scoped lang="scss">

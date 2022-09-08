@@ -5,20 +5,21 @@
 				<li v-for="(v,i) in data.tab" :class="data.n==i?'active':''" @click="data.n=i">{{v}}</li>
 				<div>价格排序</div>
 			</ul>
-			<div class="lab">
-				<label for="sp1">
-					<input type="checkbox" id="sp1" />
-					仅显示有货商品
-				</label>
-
-				<label for="sp2">
-					<input type="checkbox" id="sp2" />
-					仅显示特惠商品
-				</label>
-			</div>
+			<ul class="lab">
+				<li @click="setc(1)">
+					<img class="tp" v-show="!data.flag1" src="../../../../assets/img/fxk.png" alt="">
+					<img class="tp" v-show="data.flag1" src="../../../../assets/img/fxks.png" alt="">
+					<span :class="data.flag1?'active':''">仅显示有货商品</span>
+				</li>
+				<li @click="setc(2)">
+					<img class="tp" v-show="!data.flag2" src="../../../../assets/img/fxk.png" alt="">
+					<img class="tp" v-show="data.flag2" src="../../../../assets/img/fxks.png" alt="">
+					<span :class="data.flag2?'active':''">仅显示特惠商品</span>
+				</li>
+			</ul>
 		</div>
 		<ul class="qbsp" id="scroll">
-			<li v-for="item in data.arr1" :key="item.id">
+			<li v-for="item in data.arr1" :key="item.id" @click="go(item.id)">
 				<div class="yy">
 					<img :src="item.picture" alt="">
 					<p class="tit slh">{{item.name}}</p>
@@ -41,10 +42,13 @@
 	import {reactive,ref,onMounted} from 'vue';
 	import type {TabsPaneContext} from 'element-plus';
 	import {postFindSubCategoryGoods} from '../../../../api/category/index';
+	import { useRouter } from 'vue-router'; 
 	let data: any = reactive({
 		arr1: [],
 		tab: ['默认排序', '最新商品', '最高人气', '评论最多'],
-		n: 0
+		n: 0,
+		flag1:false,
+		flag2:false
 	})
 	const filterParams = reactive({
 		pagesize: 200,
@@ -54,7 +58,28 @@
 		// console.log(tab, event)
 	}
 
-	function addList(i) {
+	function setc(i:number){
+		if(i==1){
+			data.flag1=!data.flag1
+		}else if(i==2){
+			data.flag2=!data.flag2
+		}
+		
+	}
+	const router=useRouter()
+	function go(hr:string){
+		router.push({
+			path:'/detail',
+			query:{
+				id:hr
+			}
+		})
+	}
+
+
+
+
+	function addList(i:number) {
 		postFindSubCategoryGoods({
 			page: i,
 			pagsize: 10,
@@ -65,8 +90,8 @@
 	}
 	addList(1)
 	//防抖
-	function debounce(fn, wait) {
-		var timer = null;
+	function debounce(fn:Function, wait:number) {
+		var timer:any = null;
 		return function() {
 			clearTimeout(timer);
 			timer = setTimeout(function() {
@@ -126,11 +151,7 @@
 				color: #fff;
 			}
 
-			.lab {
-				display: flex;
-				align-items: center;
-				color: #999;
-			}
+			
 		}
 
 		.bj {
@@ -138,6 +159,25 @@
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
+			.lab {
+				display: flex;
+				align-items: center;
+				color: #999;
+				li{
+					margin-right: 10px;
+					display: flex;
+					align-items: center;
+					cursor: pointer;
+					.tp{
+						width: 14px;
+						height: 14px;
+						margin-right: 5px;
+					}
+				}
+				.active {
+					color: #27ba9b;
+				}
+			}
 		}
 
 	}

@@ -45,10 +45,14 @@ const routes: Array<RouteRecordRaw> = [
         path: '/cart',
         component: () => import('../pages/Cart/CartComponent.vue')
     },
-		{
-		    path: '/category',
-		    component: () => import('../pages/Category/Category.vue')
-		}
+	{
+        path: '/category',
+        component: () => import('../pages/Category/Category.vue')
+    },
+    {
+        path: '/detail',
+        component: () => import('../pages/Detail/DetailComponent.vue')
+    }
 ];
 const router = createRouter({
     history: createWebHashHistory(),
