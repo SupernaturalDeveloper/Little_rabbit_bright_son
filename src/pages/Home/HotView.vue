@@ -8,7 +8,7 @@
         </header>
         <ul class="list">
             <li v-for="item in list" :key="item.id">
-                <img :src="item.picture" alt="">
+                <img v-lazy="item.picture" alt="">
                 <div>
                     <p>{{ item.title }}</p>
                     <p>{{ item.alt }}</p>

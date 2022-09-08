@@ -2,7 +2,7 @@
     <div class="goods-item-box" v-for="item in props.goods" :key="item.id">
         <div class="goods-item">
             <a href="" class="image">
-                <img :src="item.picture" alt="">
+                <img v-lazy="item.picture" alt="">
             </a>
             <p class="e-2 name">{{item.name}}</p>
             <p class="desc e">{{item.desc}}</p>

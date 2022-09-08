@@ -2,7 +2,6 @@
     <div class="swiper">
         <div class="cover-box">
             <ul class="menu">
-
                 <li v-for="item,index in all" :key="item.id">
                     <span @click="toOneCate(index)">{{ item.name }}</span>
                     <span v-for="sub,i in item.children.slice(0, 2)" :key="sub.id" @click="getId(i,index)">{{ sub.name

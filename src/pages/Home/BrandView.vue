@@ -13,7 +13,7 @@
             <div class="brand-box">
                 <ul ref="list">
                     <li v-for="item in brand" :key="item.id">
-                        <img :src="item.picture" alt="">
+                        <img v-lazy="item.picture" alt="">
                     </li>
                 </ul>
             </div>
