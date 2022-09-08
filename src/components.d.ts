@@ -20,22 +20,13 @@ declare module '@vue/runtime-core' {
     CateHead: typeof import('./components/cate/CateHead.vue')['default']
     Checkbox: typeof import('./components/CartComponents/components/Checkbox.vue')['default']
     CheckboxRadio: typeof import('./components/CartComponents/components/CheckboxRadio.vue')['default']
-    ElBacktop: typeof import('element-plus/es')['ElBacktop']
-    ElBreadcrumb: typeof import('element-plus/es')['ElBreadcrumb']
-    ElBreadcrumbItem: typeof import('element-plus/es')['ElBreadcrumbItem']
     ElButton: typeof import('element-plus/es')['ElButton']
     ElCarousel: typeof import('element-plus/es')['ElCarousel']
     ElCarouselItem: typeof import('element-plus/es')['ElCarouselItem']
     ElCol: typeof import('element-plus/es')['ElCol']
-<<<<<<< HEAD
-=======
-    ElDialog: typeof import('element-plus/es')['ElDialog']
-    ElIcon: typeof import('element-plus/es')['ElIcon']
     ElInput: typeof import('element-plus/es')['ElInput']
-    ElInputNumber: typeof import('element-plus/es')['ElInputNumber']
     ElRadio: typeof import('element-plus/es')['ElRadio']
     ElRadioGroup: typeof import('element-plus/es')['ElRadioGroup']
->>>>>>> dcce172d3aa57768d7cbd49bacaab5874f402776
     ElRow: typeof import('element-plus/es')['ElRow']
     ElTabPane: typeof import('element-plus/es')['ElTabPane']
     ElTabs: typeof import('element-plus/es')['ElTabs']
