@@ -70,8 +70,7 @@
     const activeName = ref("first");
     // 登录操作
     const loginHandle = () => {
-        if (checked) {
-        }
+        if (checked) return;
     };
     watchEffect(() => {
         if (!checked.value) {
