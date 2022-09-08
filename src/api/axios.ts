@@ -11,6 +11,7 @@ const http = new axiosApi({
         // development: "https://pcapi-xiaotuxian-front-devtest.itheima.net",
         development: "https://apipc-xiaotuxian-front.itheima.net/",
         production: "https://apipc-xiaotuxian-front.itheima.net/"
+
     },
     headers: ["Content-Type", "application/json"],
     timeout: 5000,
