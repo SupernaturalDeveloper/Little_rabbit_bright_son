@@ -53,7 +53,6 @@ watchEffect(async () => {
 function toOneCate(i:number){
     category.forEach((item:any,index:number)=>{
         if(i == index){
-            console.log(item);
             router.push({
                 path : '/homelist',
                 query : {
@@ -67,7 +66,6 @@ async function getId(i: number, j: number) {
     let message = await getFindAllCategory()
     message.result[j].children.slice(0, 2).forEach((item: any, index: number) => {
         if (i == index) {
-            console.log(item.id);
             router.push({
                 path : '/category',
                 query : {

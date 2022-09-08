@@ -29,7 +29,7 @@
 import { reactive, ref } from 'vue';
 import Qbsp from './com/Qbsp.vue'
 import { getFindSubCategoryFilter } from '../../../api/category/index';
-const props = defineProps(['ide','msg'])
+const props = defineProps(['ide'])
 let data: any = reactive({
 	list1: {},
 	ide:props.ide

@@ -27,18 +27,7 @@ declare module '@vue/runtime-core' {
     ElCarousel: typeof import('element-plus/es')['ElCarousel']
     ElCarouselItem: typeof import('element-plus/es')['ElCarouselItem']
     ElCol: typeof import('element-plus/es')['ElCol']
-    ElDialog: typeof import('element-plus/es')['ElDialog']
-    ElIcon: typeof import('element-plus/es')['ElIcon']
-<<<<<<< HEAD
-    ElInputNumber: typeof import('element-plus/es')['ElInputNumber']
-=======
-    ElInput: typeof import('element-plus/es')['ElInput']
-    ElInputNumber: typeof import('element-plus/es')['ElInputNumber']
-    ElRadio: typeof import('element-plus/es')['ElRadio']
->>>>>>> a2df463447ba5f93ce841246321b4ba70782dbc5
     ElRow: typeof import('element-plus/es')['ElRow']
-    ElTabPane: typeof import('element-plus/es')['ElTabPane']
-    ElTabs: typeof import('element-plus/es')['ElTabs']
     FooterBottom: typeof import('./components/common/FooterBottom.vue')['default']
     FooterTop: typeof import('./components/common/FooterTop.vue')['default']
     HeaderView: typeof import('./components/common/HeaderView.vue')['default']
