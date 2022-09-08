@@ -964,9 +964,10 @@ class HttpRequest {
                     url: url,
                     // `params` 是即将与请求一起发送的 URL 参数
                     // `data` 是作为请求主体被发送的数据
-                    params: method === 'GET' || method === 'DELETE' ? params : null,
-                    data: method === 'POST' || method === 'PUT' ? params : null,
+                    params: method === 'GET' ? params : null,
+                    data: method === 'POST' || method === 'PUT' || method === 'DELETE' ? params : null,
                 }
+                // console.log(httpDefault, '---------------------------')
                 return new Promise((resolve, reject) => {
                     this.axios(httpDefault)
                         // 此处的.then属于axios
