@@ -31,10 +31,12 @@
                             </div>
                             <div class="alertTitle" v-show="isShowTitle">
                                 <el-icon><WarnTriangleFilled /></el-icon>
-                                请勾选登录协议
+                                <span> 请勾选登录协议 </span>
                             </div>
                         </div>
-                        <el-button type="primary">登录</el-button>
+                        <el-button type="primary" @click="loginHandle"
+                            >登录</el-button
+                        >
                         <div class="dd">
                             <a>忘记密码</a>
                             <a>免费注册</a>
@@ -66,6 +68,11 @@
     let checked = ref(true);
     let isShowTitle = ref(false);
     const activeName = ref("first");
+    // 登录操作
+    const loginHandle = () => {
+        if (checked) {
+        }
+    };
     watchEffect(() => {
         if (!checked.value) {
             isShowTitle.value = true;
@@ -185,6 +192,10 @@
             margin-top: 10px;
             text-align: left;
             color: red;
+            span {
+                display: inline-block;
+                vertical-align: top;
+            }
         }
     }
 </style>
