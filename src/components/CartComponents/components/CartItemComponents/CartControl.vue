@@ -11,8 +11,15 @@
     </div>
 </template>
 <script setup lang="ts">
+    import { defineProps } from "vue";
+    import { useCartStore } from "../../../../store";
+    const props = defineProps({
+        skuId: String,
+    });
+    const store = useCartStore();
     const confirmDel = () => {
-        console.log("删除当前商品");
+        store.deleteCartItem({ ids: [props.skuId!] });
+        console.log("删除当前商品", { ids: [props.skuId!] });
     };
 </script>
 <style lang="scss" scoped>
