@@ -5,7 +5,7 @@
                 ><img src="../../assets/img/logo.png" alt=""
             /></router-link>
             <h2>欢迎登录</h2>
-            <router-link to=""><p>进入网站首页</p> </router-link>
+            <router-link to="/"><p>进入网站首页</p> </router-link>
         </div>
         <div class="conter">
             <div class="wrap">
@@ -13,11 +13,11 @@
                     <el-tab-pane label="账户登录" name="first">
                         <p>使用短信登录</p>
                         <el-input
-                            model-value="xiaotuxian001"
+                            :model-value="userInfo.account"
                             placeholder="用户名"
                         />
                         <el-input
-                            model-value="123456"
+                            :model-value="userInfo.password"
                             type="password"
                             placeholder="密码"
                         />
@@ -65,18 +65,33 @@
 
 <script setup lang="ts">
     import { ref, watchEffect } from "vue";
+    import { useRouter } from "vue-router";
+    import { useLoginStore } from "../../store/login";
     let checked = ref(true);
     let isShowTitle = ref(false);
+    const router = useRouter();
+    const store = useLoginStore();
+    // 用户名和密码
+    const userInfo = ref({
+        account: "xiaotuxian001",
+        password: "123456",
+    });
     const activeName = ref("first");
     // 登录操作
     const loginHandle = () => {
-        if (checked) return;
+        if (!checked) return;
+        store.accountLogin(userInfo.value);
     };
     watchEffect(() => {
         if (!checked.value) {
             isShowTitle.value = true;
         } else {
             isShowTitle.value = false;
+        }
+        if (store.getToken) {
+            router.push({
+                path: store.$state.userInfo.redirectUrl,
+            });
         }
     });
 </script>

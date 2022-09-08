@@ -32,7 +32,9 @@
                                 <p style="margin: 10px 0">
                                     购物车内暂时没有商品
                                 </p>
-                                <el-button color="#626aef">继续逛逛</el-button>
+                                <el-button color="#626aef" @click="toHome"
+                                    >继续逛逛</el-button
+                                >
                             </div>
                         </td>
                     </tr>
@@ -43,13 +45,22 @@
 </template>
 <script setup lang="ts">
     import { useCartStore, useCartItemKind } from "../../store";
-    import { computed } from "vue";
+    import { useLoginStore } from "../../store/login";
+    import { computed, watchEffect } from "vue";
+    import { useRouter } from "vue-router";
     // 购物车store
     const store = useCartStore();
+    const loginStore = useLoginStore();
     const kindStore = useCartItemKind();
-    store.getCartData();
+    const router = useRouter();
+
     let shopData = computed(() => {
         return store.getShoppingCartData;
+    });
+    watchEffect(() => {
+        if (loginStore.getToken) {
+            store.getCartData();
+        }
     });
 
     document.addEventListener("click", function (e) {
@@ -64,6 +75,12 @@
                 item => ((item["value"] as any).children[1].style.display = "none")
             );
     });
+    // 继续逛逛
+    const toHome = () => {
+        router.push({
+            path: "/",
+        });
+    };
 </script>
 <style lang="scss" scoped>
     .cartContent {

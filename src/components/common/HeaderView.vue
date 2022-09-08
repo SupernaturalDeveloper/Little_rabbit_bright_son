@@ -9,14 +9,13 @@
                     <div class="grid-content ep-bg-purple-light">
                         <ul class="top-ul">
                             <template v-if="storage">
-                                <li>{{ storage }}</li>
+                                <li @click="toMineHandle">{{ storage }}</li>
                                 <li @click="logout">退出登录</li>
                             </template>
                             <template v-else>
                                 <li @click="login">请先登录</li>
                                 <li>免费注册</li>
                             </template>
-                            <li v-show="flag">退出登录</li>
                             <li>我的订单</li>
                             <li>会员中心</li>
                             <li>关于我们</li>
@@ -31,20 +30,30 @@
 <script lang="ts" setup>
     import { computed } from "vue";
     import { useRouter } from "vue-router";
+    import { useLoginStore } from "../../store/login";
     const router = useRouter();
-    let flag = false;
+    const store = useLoginStore();
+
     let storage = computed(() => {
-        return window.localStorage.getItem("token");
+        if ((store.userInfo.profile as any).token) {
+            return (store.userInfo.profile as any).account;
+        }
+        return null;
     });
     // 退出登录
     const logout = () => {
-        window.localStorage.removeItem("token");
+        store.removeToken();
+        router.push({ path: "/login" });
     };
     // 登录
     const login = () => {
         router.push({
             path: "/login",
         });
+    };
+    // 个人中心
+    const toMineHandle = () => {
+        router.push("/mine");
     };
 </script>
 <style lang="scss" scoped>
