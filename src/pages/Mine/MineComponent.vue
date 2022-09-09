@@ -29,7 +29,7 @@
         }
         .right{
             width: 1000px;
-            background: #fff;
+            // background: #fff;
         }
     }
 </style>

@@ -1,109 +1,92 @@
-// 这是我的收藏组件
 <template>
+    <!-- 这是我的收藏/足迹组件 -->
   <div class="box">
     <div class="head">
-        <p class="title">我的收藏</p>
+        <p class="title">{{props.title}}</p>
+        <span>查看全部 &gt;</span>
     </div>
     <div class="list">
-        <a href="" v-for="(item,index) in obj" :key="index">
-            <img alt="" data-v-3828c3be="" :src="item.url">
-            <p class="name ellipsis" data-v-3828c3be="">{{item.name}}</p>
-            <p class="desc ellipsis" data-v-3828c3be="">{{item.desc}}</p>
-            <p class="price" data-v-3828c3be="">{{item.price}}</p>
-        </a>
+        <div v-for="(item,index) in props.msg" :key="index">
+            <img alt="图片加载失败" :src="item.url">
+            <p class="name ellipsis">{{item.name}}</p>
+            <p class="text ellipsis">{{item.desc}}</p>
+            <p class="price">{{item.price}}</p>
+        </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { reactive } from "@vue/reactivity";
-    let obj = reactive([
-        {
-            url:'http://zhoushugang.gitee.io/erabbit-client-pc-static/uploads/clothes_goods_3.jpg',
-            name:"1什局安这书无列候们养更算约",
-            desc:"a来问非响身整规音价家",
-            price:"¥129.01"
-        },
-        {
-            url:'http://zhoushugang.gitee.io/erabbit-client-pc-static/uploads/clothes_goods_3.jpg',
-            name:"2什局安这书无列候们养更算约",
-            desc:"b来问非响身整规音价家",
-            price:"¥129.01"
-        },
-        {
-            url:'http://zhoushugang.gitee.io/erabbit-client-pc-static/uploads/clothes_goods_3.jpg',
-            name:"3什局安这书无列候们养更算约",
-            desc:"c来问非响身整规音价家",
-            price:"¥129.01"
-        },
-        {
-            url:'http://zhoushugang.gitee.io/erabbit-client-pc-static/uploads/clothes_goods_3.jpg',
-            name:"4什局安这书无列候们养更算约",
-            desc:"d来问非响身整规音价家",
-            price:"¥129.01"
-        },
-    ])
+    const props = defineProps(['title','msg'])
 </script>
 
 <style lang="scss" scoped>
-*{
-    margin: 0;
-    padding: 0;
-}
-a{
-    text-decoration: none;
-    color: #333;
-    outline: none;
-}
 .box{
-    width: 1000px;
+    width: 100%;
     height: 400px;
-    padding: 20px 20px 0 20px;
+    padding: 0 20px;
     margin-top: 20px;
-    background: rgb(217, 173, 173);
-    margin: 0 auto;
+    box-sizing: border-box;
+    background: #fff;
     .head{
-        height: 29px;
-        border-bottom:1px solid #f5f5f5;
+        height: 66px;
+        border-bottom: 1px solid #f5f5f5;
         padding: 18px 0;
         display: flex;
         justify-content: space-between;
         align-items: baseline;
+        box-sizing: border-box;
         .title{
             font-size: 22px;
             font-weight: 400;
+        }
+        span{
+            font-size: 16px;
+            margin-right: 4px;
+            color: #999;
+        }
+        span:hover{
+            color: #5BB79C;
         }
     }
     .list{
         display: flex;
         justify-content: space-around;
         padding-top: 20px;
-        a{
-            display: block;
-            width: 160px;
-            padding: 20px 27px;
+        &>div{
+            width: 220px;
+            padding: 20px 30px;
             text-align: center;
             transition: all .5s;
+            box-sizing: border-box;
+            cursor: pointer;
             img{
                 width: 160px;
                 height: 160px;
             }
-            .ellipsis{
+            p{
+                padding-top: 10px;
+            }
+            .name{
                 font-size: 16px;
-                padding-top:10px;
+            }
+            .text{
+                color: #999;
+                height: 29px
+            }
+            .ellipsis{
                 text-overflow: ellipsis;
                 overflow: hidden;
                 white-space: nowrap;
-            }
-            .desc{
-                color: #999;
-                height: 29px;
-                font-size: 14px;
             }
             .price{
                 color: #cf4444;
                 font-size: 20px;
             }
+        }
+        &>div:hover{
+            transform: translate(0,-5px);
+            box-shadow: 2px 2px 10px 2px #DADADA;
         }
     }
 }

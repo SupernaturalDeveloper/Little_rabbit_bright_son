@@ -8,6 +8,8 @@ const store = createPinia();
 store.use(piniaPluginPersistedstate);
 // 样式重置
 import './assets/style/reset.scss'
+// element-plus消息提示引入
+import 'element-plus/theme-chalk/el-message.css';
 
 // element图标
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
