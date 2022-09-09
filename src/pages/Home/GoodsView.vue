@@ -12,7 +12,7 @@
             </header>
             <div class="box">
                 <a href="" class="cover">
-                    <img :src="item.picture" alt="">
+                    <img v-lazy="item.picture" alt="">
                     <strong><span>{{ item.saleInfo }}</span></strong>
                 </a>
                 <div class="shop-list">

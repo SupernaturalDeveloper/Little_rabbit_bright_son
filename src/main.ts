@@ -14,9 +14,13 @@ import 'element-plus/theme-chalk/el-message.css';
 // element图标
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 
+import imgLazy from './utils/imgLazy'
+
 const app = createApp(App)
 for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
     app.component(key, component)
 }
 
-app.use(pinia).use(router).mount('#app')
+
+app.use(pinia).use(router).use(imgLazy).mount('#app')
+

@@ -1,16 +1,17 @@
 <template>
     <el-carousel height="500px">
-        <el-carousel-item v-for="item in props.swiper" :key="item.id">
-            <img :src="item.imgUrl" alt="">
+        <el-carousel-item v-for="item,index in imgUrl" :key="item.index">
+            <img :src="'/src/assets/img/'+item" alt="">
         </el-carousel-item>
     </el-carousel>
-
 </template>
 <script lang="ts" setup>
 import {defineProps} from 'vue'
-const props = defineProps({
-    swiper:Array<any>
-})
+
+// const props = defineProps({
+//     swiper:Array<any>
+// })
+const imgUrl=['01.jpg','02.jpg','03.jpg','04.jpg','05.jpg']
 
 </script>
 <style lang="scss" scoped>
