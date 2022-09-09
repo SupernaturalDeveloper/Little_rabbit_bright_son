@@ -2,6 +2,9 @@ import axios from 'axios';
 import { wxy } from '../utils/wxy'
 import pinia from '../store/store';
 import { useLoginStore } from '../store/login';
+import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
+
+pinia.use(piniaPluginPersistedstate);
 const axiosApi = wxy.AxiosRequest();
 const store = useLoginStore(pinia);
 
