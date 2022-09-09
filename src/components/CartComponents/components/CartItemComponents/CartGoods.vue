@@ -61,7 +61,7 @@
 </template>
 <script setup lang="ts">
     import { useCartItemKind, useCartStore } from "../../../../store";
-    import { ref, defineProps, computed, reactive } from "vue";
+    import { ref, defineProps, computed } from "vue";
     const props = defineProps({
         ITEM: Object,
     });

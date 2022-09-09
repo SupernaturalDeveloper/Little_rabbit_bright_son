@@ -1,8 +1,10 @@
 import axios from 'axios';
 import { wxy } from '../utils/wxy'
-
-
+import pinia from '../store/store';
+import { useLoginStore } from '../store/login';
 const axiosApi = wxy.AxiosRequest();
+const store = useLoginStore(pinia);
+
 const http = new axiosApi({
     axios: axios,
     // npm i --save-dev @types/node
@@ -11,33 +13,39 @@ const http = new axiosApi({
         // development: "https://pcapi-xiaotuxian-front-devtest.itheima.net",
         development: "https://apipc-xiaotuxian-front.itheima.net/",
         production: "https://apipc-xiaotuxian-front.itheima.net/"
+
     },
     headers: ["Content-Type", "application/json"],
     timeout: 5000,
+    // 请求拦截设置
     requestConfig(config: any) {
-        // if (window.localStorage.getItem('token')) {
-        //     config.headers.Authorization = `bearer ${window.localStorage.getItem('token')}`
-        // }
-        config.headers.Authorization = `Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ7XCJuYW1lXCI6XCLkvKDmmbrmlZnogrIrMVwiLFwiaWRcIjpcIjEzNjk1OTQ5NTQ3Mzk4NTk0NThcIixcInVzZXJuYW1lXCI6XCJ4aWFvdHV4aWFuMDAxXCJ9IiwiaWF0IjoxNjYyMzY4MjIzLCJleHAiOjE2NjI2Mjc0MjN9.BKchN572yl255TgfThomAOg76ilOCpduV0aKutABR5M`
+        // 判断状态存储中是否有token
+        if (store.getToken) {
+            // 如果有token就发送到后台
+            config.headers.Authorization = `Bearer ${store.getToken}`
+        }
         return config;
     },
+    // 请求拦截出错
     requestError(error: any) {
         return Promise.reject(error);
     },
+    // 响应成功
     responseSuccess(response: any) {
         return response.data;
     },
+    // 响应失败
     responseError(error: any) {
         let { response } = error;
         if (response) {
             //服务器最起码返回结果了
             switch (response.status) {
                 case 401://当前请求需要用户验证（未登录）--权限
-                    // 模态框提示操作或者跳转路由
-                    alert(401);
+                    // 模态框提示操作或者跳转路由--移除token
+                    store.removeToken();
                     break;
                 case 403://token过期了  --服务器拒绝执行
-                    alert(403)
+                    store.removeToken();
                     break;
                 case 404://找不到页面
                     alert(404)

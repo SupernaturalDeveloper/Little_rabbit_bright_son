@@ -25,13 +25,13 @@ dependencies:
   axios: 0.27.2
   element-plus: 2.2.16_vue@3.2.38
   pinia: 2.0.21_pj7ch6rmow6odq73xb5hfvge3q
+  pinia-plugin-persistedstate: 2.1.1_pinia@2.0.21
   vue: 3.2.38
   vue-router: 4.1.5_vue@3.2.38
 
 devDependencies:
   '@types/node': 18.7.14
   '@vitejs/plugin-vue': 3.0.3_vite@3.0.9+vue@3.2.38
-  pinia-plugin-persistedstate: 2.1.1_pinia@2.0.21
   sass: 1.54.8
   typescript: 4.8.2
   unocss: 0.45.14_vite@3.0.9
@@ -461,6 +461,7 @@ packages:
 
   /@vue/devtools-api/6.2.1:
     resolution: {integrity: sha512-OEgAMeQXvCoJ+1x8WyQuVZzFo0wcyCmUR3baRVLmKBo1LmYZWMlRiXlux5jd0fqVJu6PfDbOrZItVqUEzLobeQ==}
+    dev: false
 
   /@vue/reactivity-transform/3.2.38:
     resolution: {integrity: sha512-3SD3Jmi1yXrDwiNJqQ6fs1x61WsDLqVk4NyKVz78mkaIRh6d3IqtRnptgRfXn+Fzf+m6B1KxBYWq1APj6h4qeA==}
@@ -1290,7 +1291,7 @@ packages:
         optional: true
     dependencies:
       pinia: 2.0.21_pj7ch6rmow6odq73xb5hfvge3q
-    dev: true
+    dev: false
 
   /pinia/2.0.21_pj7ch6rmow6odq73xb5hfvge3q:
     resolution: {integrity: sha512-6ol04PtL29O0Z6JHI47O3JUSoyOJ7Og0rstXrHVMZSP4zAldsQBXJCNF0i/H7m8vp/Hjd/CSmuPl7C5QAwpeWQ==}
@@ -1308,6 +1309,7 @@ packages:
       typescript: 4.8.2
       vue: 3.2.38
       vue-demi: 0.13.11_vue@3.2.38
+    dev: false
 
   /pkg-types/0.3.4:
     resolution: {integrity: sha512-s214f/xkRpwlwVBToWq9Mu0XlU3HhZMYCnr2var8+jjbavBHh/VCh4pBLsJW29rJ//B1jb4HlpMIaNIMH+W2/w==}
@@ -1691,6 +1693,7 @@ packages:
         optional: true
     dependencies:
       vue: 3.2.38
+    dev: false
 
   /vue-router/4.1.5_vue@3.2.38:
     resolution: {integrity: sha512-IsvoF5D2GQ/EGTs/Th4NQms9gd2NSqV+yylxIyp/OYp8xOwxmU8Kj/74E9DTSYAyH5LX7idVUngN3JSj1X4xcQ==}

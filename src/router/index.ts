@@ -1,4 +1,9 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router';
+import pinia from '../store/store';
+import { useLoginStore } from '../store/login';
+import { useCartStore } from '../store';
+const loginStore = useLoginStore(pinia);
+const cartStore = useCartStore(pinia);
 const routes: Array<RouteRecordRaw> = [
     {
         path: '/',
@@ -10,7 +15,13 @@ const routes: Array<RouteRecordRaw> = [
     },
     {
         path: '/cart',
-        component: () => import('../pages/Cart/CartComponent.vue')
+        component: () => import('../pages/Cart/CartComponent.vue'),
+        beforeEnter() {
+            if (!loginStore.getToken) {
+                // 如果没有登录将pinia数据缓存删除
+                cartStore.ShoppingCartData = []
+            }
+        }
     },
 		{
         path: '/category',
@@ -23,11 +34,16 @@ const routes: Array<RouteRecordRaw> = [
     {
         path : '/homelist',
         name : 'homelist',
-        component : ()=>import('../pages/Home/HomeList.vue'),
+        component : ()=>import('../pages/Home/HomeList.vue')
     }
+
 ];
 const router = createRouter({
     history: createWebHashHistory(),
     routes
+})
+// 解决跳转后，滚动条位置问题
+router.afterEach(() => {
+    document.documentElement.scrollTo(0, 0);
 })
 export default router;

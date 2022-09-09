@@ -23,7 +23,6 @@
     </div>
 </template>
 <script setup lang="ts">
-    import { ref } from "vue";
     import { useCartStore } from "../../store";
     // 购物车store
     const store = useCartStore();
@@ -35,12 +34,6 @@
     const confirmClear = (val: boolean) => {
         console.log(val);
     };
-    // 价格汇总
-    const total = ref<number>(0);
-    // 商品数量
-    const num = ref<number>(0);
-    // 选中商品的数量
-    const selectedNum = ref<number>(0);
 </script>
 <style lang="scss" scoped>
     .action {

@@ -4,7 +4,7 @@
 			<div class="rou">
 				<el-breadcrumb :separator-icon="ArrowRight">
 				  <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
-					<el-breadcrumb-item :to="{ path: '/homelist',query:da.toId }">{{da.parentName}}</el-breadcrumb-item>
+					<el-breadcrumb-item :to="{ path: '/homelist',query:{id:da.id} }">{{da.parentName}}</el-breadcrumb-item>
 					<el-breadcrumb-item>{{da.name}}</el-breadcrumb-item>
 				</el-breadcrumb>
 			</div>
@@ -25,15 +25,14 @@
 	let da:any=reactive({
 		name:'',
 		parentName:'',
-		toId:'',
+		id:'',
 		ide:route.query.id
 	})
-
 	getFindSubCategoryFilter({id:da.ide}).then((res:any) => {
-		let arr=res.result
-		 da.name=arr.name
-		 da.parentName=arr.parentName
-		 da.toId=arr.id
+		let arr=res.result;
+		 da.name=arr.name;
+		 da.parentName=arr.parentName;
+		 da.id=arr.parentId;
 	})
 </script>
 
@@ -51,5 +50,11 @@
 	}
 	.rou{
 		padding: 25px 10px;
+	}
+
+</style>
+<style>
+	.el-breadcrumb__inner:hover{
+		color: #42b983 !important;
 	}
 </style>

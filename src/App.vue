@@ -1,28 +1,28 @@
 <template>
-  <div v-if="route.path == '/login'">
-    <div>
-      <router-view></router-view>
+    <div v-if="route.path == '/login'">
+        <div>
+            <router-view></router-view>
+        </div>
     </div>
-  </div>
-  <div v-else>
-    <HeaderView />
-    <TitleView />
-    <div class="main">
-      <div class="content">
-        <router-view></router-view>
-      </div>
+    <div v-else>
+        <HeaderView />
+        <TitleView />
+        <div class="main">
+            <div class="content">
+                <router-view></router-view>
+            </div>
+        </div>
+        <FooterTop />
+        <FooterBottom />
     </div>
-    <FooterTop />
-    <FooterBottom />
-  </div>
 </template>
+
 <script setup lang="ts">
-import { useRoute } from "vue-router";
-const route = useRoute();
+    import { useRoute } from "vue-router";
+    const route = useRoute();
 </script>
 
 <style lang="scss" scoped>
-
 
     .main {
         background: rgb(245, 245, 245);
@@ -32,10 +32,10 @@ const route = useRoute();
             margin: 0 auto;
         }
     }
+
     a{
         color: #999;
     }
-
 </style>
 
 

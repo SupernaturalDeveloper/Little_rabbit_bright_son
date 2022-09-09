@@ -1,11 +1,11 @@
 import { createApp } from 'vue'
 import App from './App.vue'
-import { createPinia } from 'pinia';
+import pinia from './store/store'
 import router from './router'
 // pinia持久存储插件
 import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
-const store = createPinia();
-store.use(piniaPluginPersistedstate);
+
+pinia.use(piniaPluginPersistedstate);
 // 样式重置
 import './assets/style/reset.scss'
 
@@ -19,4 +19,6 @@ for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
     app.component(key, component)
 }
 
-app.use(store).use(imgLazy).use(router).mount('#app')
+
+app.use(pinia).use(router).use(imgLazy).mount('#app')
+
