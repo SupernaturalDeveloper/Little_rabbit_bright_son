@@ -13,7 +13,7 @@ export const useLoginStore = defineStore(Names.Login, {
             }
         }
     },
-    persist: true,
+
     actions: {
         async accountLogin(info: IAccountLogin) {
             try {
@@ -33,9 +33,11 @@ export const useLoginStore = defineStore(Names.Login, {
                     redirectUrl: '/'
                 }
                 // pinia持久化存储用户登录信息状态
-                this.userInfo = user;
+
+                console.log(user)
                 // 本地缓存用户信息
                 window.localStorage.setItem('userInfo', JSON.stringify(user));
+                this.userInfo = user;
             } catch (error) {
                 return error;
             }
@@ -61,5 +63,6 @@ export const useLoginStore = defineStore(Names.Login, {
             }
             return null;
         }
-    }
+    },
+    persist: true,
 })
