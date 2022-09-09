@@ -4,9 +4,10 @@
             <div class="logo">
                 <img src="../../assets/img/logo.png" alt="" />
             </div>
-            <ul>
-                <router-link to="/" tag="li">首页</router-link>
-                <li v-for="item,index in category" :key="item.id" @click="toHomelist(index)">{{item.name}}</li>
+            <ul class="list">
+                <li :class="ind==-1?'active':''" @click="go">首页</li>
+                <li v-for="item,index in category" :key="item.id" :class="ind==index?'active':''"
+								 @click="toHomelist(index)">{{item.name}}</li>
             </ul>
             <div class="search">
                 <i class="icon-search"></i>
@@ -22,15 +23,26 @@
 </template>
 <script setup lang="ts">
 import { getFindAllCategory } from '../../api/category/index'
-import { watchEffect, reactive } from 'vue'
+import { watchEffect, reactive ,ref} from 'vue'
 import {useRouter} from 'vue-router'
 const category = reactive<Array<any>>([])
+const ind=ref(-1)
 const router = useRouter()
 watchEffect(async () => {
     let res1 = await getFindAllCategory()
     category.push(...res1.result)
 })
+ind.value=localStorage.getItem('ind')|| -1	
+function go(){
+	localStorage.setItem('ind',-1)
+	ind.value=localStorage.getItem('ind')
+	router.push({
+	    path : '/',
+	})
+}
 function toHomelist(i:number){
+	localStorage.setItem('ind',i)
+	ind.value=localStorage.getItem('ind')
     category.forEach((item:any,index:number)=>{
         if(i == index){
             router.push({
@@ -68,7 +80,14 @@ function toHomelist(i:number){
                     width: 100%;
                 }
             }
-
+						.list{
+							li{
+								cursor: pointer;
+							}
+							.active{
+								color:#42b983 ;
+							}
+						}
             .cart {
                 width: 50px;
                 position: relative;

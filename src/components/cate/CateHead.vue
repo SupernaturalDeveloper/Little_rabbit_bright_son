@@ -1,7 +1,7 @@
 <template>
 
     <header>
-        <router-link to="/">首页</router-link> |
+        <router-link to="/" >首页</router-link> >
         <span>{{props.title}}</span>
     </header>
 </template>
@@ -10,6 +10,7 @@ import { defineProps } from 'vue';
 const props = defineProps({
     title:String
 })
+
 </script>
 
 <style lang="scss" scoped>

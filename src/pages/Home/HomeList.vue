@@ -15,16 +15,16 @@ import {useRoute} from 'vue-router'
 const list = reactive<Array<any>>([])
 const swiper = reactive<Array<any>>([])
 const route = useRoute()
-let _id:any = route.query.id
 let title = ref<string>('')
 watchEffect(async ()=>{
-    let res = await getFindTopCategory({id : _id})
-    let res2 = await getFindBanner()
-    list.push(...res.result.children)
-    swiper.push(...res2.result)
-    title.value = res.result.name
+	let _id:any = route.query.id
+	let res = await getFindTopCategory({id : _id})
+	let res2 = await getFindBanner()
+	list.length = 0
+	swiper.push(...res2.result)
+	list.push(...res.result.children)
+	title.value = res.result.name
 })
-console.log(route.query.id);
 
 
 </script>

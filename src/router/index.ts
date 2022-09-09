@@ -41,19 +41,20 @@ const routes: Array<RouteRecordRaw> = [
             }
         }
     },
-    {
-        path: '/homelist',
-        name: 'homelist',
-        component: () => import('../pages/Home/HomeList.vue'),
-    },
-
-    {
+		{
         path: '/category',
         component: () => import('../pages/Category/Category.vue')
-    }, {
+    },
+    {
         path: '/detail',
         component: () => import('../pages/Detail/DetailComponent.vue')
+    },
+    {
+        path : '/homelist',
+        name : 'homelist',
+        component : ()=>import('../pages/Home/HomeList.vue')
     }
+
 ];
 const router = createRouter({
     history: createWebHashHistory(),
