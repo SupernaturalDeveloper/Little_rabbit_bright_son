@@ -2,13 +2,13 @@ interface ISkuID<T> {
     skuId: T;
 }
 interface ISelected {
-    selected: boolean;
+    selected?: boolean;
 }
 interface ICount<T> {
-    count: T;
+    count?: T;
 }
 interface IIds {
-    ids: Array<string>
+    ids: Array<string | number>
 }
 interface IInsertCart<T, N> extends ISkuID<T>, ICount<N> { }
 interface ICheckAllCart extends ISelected, IIds { }
