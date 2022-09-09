@@ -1,25 +1,27 @@
-//轮播组件
+<!-- 轮播组件 -->
 <template>
     <div class="carousel-view">
-      <p class="title">猜你喜欢</p>
-      <div>
-      <el-carousel height="320px" indicator-position="outside">
-        <el-carousel-item v-for="item in arr" :key="item.id">
-          <div class="slide">
-            <a href="" v-for="(it,index) in item.obj" :key="index">
-                <img :src="it.url" alt="">
-                <p class="name ellipsis" data-v-17b46ea2="">{{it.name}}</p>
-                <p class="price" data-v-17b46ea2="">{{it.price}}</p>
-            </a>
-          </div>
-        </el-carousel-item>
-      </el-carousel>
-      </div>  
+        <p class="title">
+            <i></i>
+            <span>猜你喜欢</span>
+        </p>
+        <div>
+            <el-carousel height="320px" indicator-position="outside">
+                <el-carousel-item v-for="item in arr" :key="item.id">
+                <div class="slide">
+                    <div v-for="(it,index) in item.obj" :key="index">
+                        <img :src="it.url" alt="">
+                        <p class="name ellipsis" data-v-17b46ea2="">{{it.name}}</p>
+                        <p class="price" data-v-17b46ea2="">{{it.price}}</p>
+                    </div>
+                </div>
+                </el-carousel-item>
+            </el-carousel>
+        </div>
   </div>
-    
-  </template>
-  
-  <script setup lang="ts">
+</template>
+
+<script setup lang="ts">
     import { reactive } from "@vue/reactivity";
 
     let arr=reactive([
@@ -72,39 +74,80 @@
                     price:"¥89.00"
                 }
             ]
-        }
+        },
+        {
+            id:2,
+            obj:[
+                {
+                    url:"https://yanxuan-item.nosdn.127.net/4737115ab947865c148955a3c20cb4b4.png",
+                    name:"温柔拥抱新生，萌趣全棉哈衣爬服0-3岁",
+                    price:"¥89.00"
+                },
+                {
+                    url:"https://yanxuan-item.nosdn.127.net/4b515f173e3e2a9b8ba5a6b41e6d2566.png",
+                    name:"温柔拥抱新生，萌趣全棉哈衣爬服0-3岁",
+                    price:"¥89.00"
+                },
+                {
+                    url:"https://yanxuan-item.nosdn.127.net/c3b4e3640f77bb72ec4d043ef2e2a0cd.png",
+                    name:"温柔拥抱新生，萌趣全棉哈衣爬服0-3岁",
+                    price:"¥89.00"
+                },
+                {
+                    url:"https://yanxuan-item.nosdn.127.net/e13249bcbf667bb7779738b9869bb343.jpg",
+                    name:"温柔拥抱新生，萌趣全棉哈衣爬服0-3岁",
+                    price:"¥89.00"
+                }
+            ]
+        },
     ])
-  </script>
+</script>
   
-  <style lang="scss" scoped>
-    *,p{
-        margin: 0;
-        padding: 0;
+<style lang="scss" scoped>
+    .demonstration {
+        color: var(--el-text-color-secondary);
     }
-      .demonstration {
-          color: var(--el-text-color-secondary);
-      }
-      .carousel-view{
-          width: 1000px;
-          background: #fff;
-          border: 1px solid red;
-          margin: 0 auto;
-          .title{
+    .carousel-view{
+        background: #fff;
+        min-height: 460px;
+        margin-top: 20px;
+        .title{
             height: 80px;
             line-height: 80px;
-            font-size: 20px;
-            padding-left: 10px;
-          }
-          .el-carousel{
+            padding: 0 20px;
+            i{
+                width: 16px;
+                height: 16px;
+                display: inline-block;
+                border-top: 4px solid #27ba9b;
+                border-right: 4px solid #27ba9b;
+                box-sizing: border-box;
+                position: relative;
+                transform: rotate(45deg);
+            }
+            i:before{
+                content: "";
+                width: 10px;
+                height: 10px;
+                position: absolute;
+                left: 0;
+                top: 2px;
+                background: #bcf1e6;
+            }
+            span{
+                font-size: 20px;
+                padding-left: 10px;
+            }
+        }
+        .el-carousel{
             .slide{
                 display: flex;
                 justify-content: space-around;
-                a{
+                div{
                     width: 240px;
                     text-align: center;
                     text-decoration: none;
                     color: #333;
-                    outline: none;
                     img{
                         width: 230px!important;
                         height: 230px!important;
@@ -125,7 +168,7 @@
                     }
                 }
             }
-          }
-      }
+        }
+    }
       
-  </style>
+</style>
