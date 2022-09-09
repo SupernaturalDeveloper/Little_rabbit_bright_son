@@ -5,6 +5,7 @@ import { useCartStore } from '../store';
 const loginStore = useLoginStore(pinia);
 const cartStore = useCartStore(pinia);
 const routes: Array<RouteRecordRaw> = [
+<<<<<<< HEAD
     // {
     //     path: '/',
     //     component: () => import('../pages/Home/HomeComponent.vue')
@@ -14,11 +15,34 @@ const routes: Array<RouteRecordRaw> = [
         path: '/about',
         component: () => import('../pages/About/AboutComponent.vue')
     },
+=======
+>>>>>>> lxy
     {
         path: '/',
-        component: () => import('../pages/Mine/MineComponent.vue')
+        component: () => import('../pages/Home/HomeComponent.vue'),
     },
+<<<<<<< HEAD
 =======
+=======
+    {
+        path:'/mine',
+        component: () => import('../pages/Mine/MineComponent.vue'),
+        children:[
+            {
+                path:'',
+                redirect:"mine/PersonalCenter",
+            },
+            {
+                path:'PersonalCenter',
+                component: () => import('../pages/Mine/routerComponents/PersonalCenter.vue'),
+            },{
+                path:'MyOrder',
+                component: () => import('../pages/Mine/routerComponents/MyOrder.vue'),
+            }
+        ]
+    },
+    {
+>>>>>>> lxy
         path: '/login',
         component: () => import('../pages/Login/Login.vue')
     },
@@ -46,7 +70,10 @@ const routes: Array<RouteRecordRaw> = [
         path: '/detail',
         component: () => import('../pages/Detail/DetailComponent.vue')
     }
+<<<<<<< HEAD
 >>>>>>> fc220f3b30f25a4d3435ce0a5a889a9a87d5d18d
+=======
+>>>>>>> lxy
 ];
 const router = createRouter({
     history: createWebHashHistory(),
