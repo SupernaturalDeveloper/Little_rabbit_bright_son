@@ -19,7 +19,12 @@
 
 <script setup lang="ts">
     import { useRoute } from "vue-router";
+    import { useLoginStore } from "./store/login";
     const route = useRoute();
+    const store = useLoginStore();
+    if (window.localStorage.getItem("userInfo")?.includes("token")) {
+        store.userInfo = JSON.parse(window.localStorage.getItem("userInfo")!);
+    }
 </script>
 
 <style lang="scss" scoped>

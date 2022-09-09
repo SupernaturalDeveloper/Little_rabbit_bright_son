@@ -6,10 +6,12 @@
     <!-- 购物车结算 -->
     <CartAction></CartAction>
     <!-- 轮播图 -->
+    <carousel-view></carousel-view>
 </template>
 <script setup lang="ts">
     // import { onBeforeRouteUpdate } from "vue-router";
     import breadcrumbData from "../../hooks/cart/breadcrumbData";
+    import CarouselView from '../../components/common/CarouselView.vue'
     // 获取面包屑导航的hooks数据
     const info = breadcrumbData();
 </script>

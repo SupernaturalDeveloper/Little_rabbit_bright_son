@@ -79,7 +79,7 @@
     const activeName = ref("first");
     // 登录操作
     const loginHandle = () => {
-        if (!checked) return;
+        if (!checked.value) return;
         store.accountLogin(userInfo.value);
     };
     watchEffect(() => {

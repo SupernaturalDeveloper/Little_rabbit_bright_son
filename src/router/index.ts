@@ -5,9 +5,27 @@ import { useCartStore } from '../store';
 const loginStore = useLoginStore(pinia);
 const cartStore = useCartStore(pinia);
 const routes: Array<RouteRecordRaw> = [
+
     {
         path: '/',
-        component: () => import('../pages/Home/HomeComponent.vue')
+        component: () => import('../pages/Home/HomeComponent.vue'),
+    },
+    {
+        path:'/mine',
+        component: () => import('../pages/Mine/MineComponent.vue'),
+        children:[
+            {
+                path:'',
+                redirect:"mine/PersonalCenter",
+            },
+            {
+                path:'PersonalCenter',
+                component: () => import('../pages/Mine/routerComponents/PersonalCenter.vue'),
+            },{
+                path:'MyOrder',
+                component: () => import('../pages/Mine/routerComponents/MyOrder.vue'),
+            }
+        ]
     },
     {
         path: '/login',
